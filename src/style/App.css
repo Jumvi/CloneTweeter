@@ -29,6 +29,11 @@ body{
     border-bottom: 1px solid #2F3336;
 }
 
+.header a{
+  color: white;
+  text-decoration: none;
+}
+
 .top-tweets {
     width: 1.5rem;
     height: auto;
@@ -37,6 +42,7 @@ body{
 .page-title {
     font-size: 1.5rem;
     font-weight: bold;
+    
 }
 
 .tweet-editor {
