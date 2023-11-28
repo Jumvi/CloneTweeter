@@ -1,10 +1,11 @@
+import Avatar from "./Avatar";
 
 
 
 function profilImage({ src }) {
   return (
     <div className="avatar">
-      <img src={src} />
+      <Avatar src={src} />
     </div>
 
   )
