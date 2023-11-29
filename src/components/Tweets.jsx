@@ -4,34 +4,18 @@ import TweetTile from "./TweetTitle";
 import verifiedIcon from '../images/Verified.png'
 import TweetImage from "./TweetImage";
 import AllIcons from "./AllIcons";
+import { useState } from "react";
 
 
 
 function Tweets({user}){
+    const [count, setCount]=useState(0);
+    function hundelClick(){
+        setCount(count+1)
+    }
 
-    
-
-           
-
+      
     return(
-        // <div className="tweet">
-        //     {/* <Avatar src={user.src} />
-        //     <div className="tweet-content">
-        //         <div className="tweet-body">
-        //             <TweetTile author={user.author} pseudo={user.pseudo} src={user.verifiedIcon} hour={user.hour} />
-        //             <div className="tweet-text">
-        //                 <p>
-        //                     {user.textContent}
-        //                 </p>
-        //                 <img className="tweet-image" src={user.imgContent} alt="photo du tweet" />
-
-        //             </div>
-        //         </div> */}
-               
-        //        <AllIcons />
-        //     {/* </div> */}
-        // </div>
-
         <div className="tweets">
             {user.map((users,key)=> (
                     <div className="tweet" key={key}>
@@ -48,7 +32,7 @@ function Tweets({user}){
                             <div className="tweet-image">
                                 <img src={users.imgContent} alt="" />
                             </div>
-                            <AllIcons /> 
+                            <AllIcons onClick={hundelClick} value={count}  /> 
                             
                                 
                         </div>

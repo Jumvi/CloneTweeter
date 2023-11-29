@@ -14,7 +14,8 @@ function Home() {
     author:'CNN',
     verifiedIcon:verified,
     hour:'il ya 1h',
-    imgContent:null
+    imgContent:null,
+    isCert:false
    },
    {
     text: 'je suis l\'auteur de ce tweet',
@@ -23,7 +24,8 @@ function Home() {
     author:'CNN',
     verifiedIcon:verified,
     hour:'il ya 1h',
-    imgContent:tweetimage
+    imgContent:tweetimage,
+    isCert: true
    },
    {
     text: 'je suis l\'auteur de ce tweet',
@@ -32,7 +34,8 @@ function Home() {
     author:'CNN',
     verifiedIcon:verified,
     hour:'il ya 1h',
-    imgContent:tweetimage
+    imgContent:tweetimage,
+    isCert:true
    },
    {
     text: 'je suis l\'auteur de ce tweet',
@@ -41,7 +44,8 @@ function Home() {
     author:'CNN',
     verifiedIcon:verified,
     hour:'il ya 1h',
-    imgContent:tweetimage
+    imgContent:tweetimage,
+    isCert:false
    }];
 
    

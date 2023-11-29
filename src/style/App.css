@@ -37,6 +37,8 @@ body{
 .top-tweets {
     width: 1.5rem;
     height: auto;
+    background-color: black;
+    border: none;
 }
 
 .page-title {
@@ -185,6 +187,12 @@ body{
     gap: 5rem;
     color: grey;
     font-size: 1rem;
+}
+
+.tweet-actions button{
+    border: none;
+    background-color: black;
+    color: white;
 }
 
 .tweet-actions svg {
