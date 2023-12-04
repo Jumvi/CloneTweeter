@@ -229,3 +229,61 @@ body{
 .my-button:hover{
     color: #2881c5;
 }
+
+.my-nave li a{
+    text-decoration: none;
+    color: white;
+    line-height: 2;
+}
+
+.my-nave li{
+    list-style: none;
+    margin-left: 5em;
+    font-weight: bold;
+}
+
+.navigation{
+   margin-left: 10%;
+   text-align: justify;
+   padding:10px ;
+}
+
+.sidebare{
+    text-align: center;
+    width: 19em;
+
+}
+
+.top-tweets img{
+    width: 1.5rem;
+    height: auto;
+    background-color: black;
+    border: none;
+}
+
+.top-tweets:hover img {
+    cursor: pointer;
+    color: #1D9BF0;
+}
+
+.user-title{
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    
+}
+
+.my-title{
+    display: flex;
+    gap: 2px;
+    margin-left: 6em;
+    margin-top: 11em;
+}
+
+ span{
+    color: #6E767D;
+    size: 20px;
+}
+
+
+

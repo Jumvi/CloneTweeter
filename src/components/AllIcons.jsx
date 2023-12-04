@@ -4,6 +4,8 @@ import retweet from '../images/Retweet.png';
 import coeur from '../images/coeur.png';
 import share from '../images/Share.png'
 import TweetImage from './TweetImage';
+import { CiBookmark } from "react-icons/ci";
+
 
 
 function AllIcons({onClick,value,click,increment,onOpen,istrue, close}) {
@@ -43,6 +45,11 @@ function AllIcons({onClick,value,click,increment,onOpen,istrue, close}) {
                 <img className='tweet-action' src={share} alt="share" />
                 <p>share</p>
             </button>
+            <button className='my-button' >
+                <CiBookmark color='white' size={40}/>
+                <p>BookMaker</p>
+            </button>
+
             
         </div>
     );
