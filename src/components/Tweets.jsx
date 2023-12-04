@@ -4,15 +4,41 @@ import TweetTile from "./TweetTitle";
 import verifiedIcon from '../images/Verified.png'
 import TweetImage from "./TweetImage";
 import AllIcons from "./AllIcons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
 function Tweets({user}){
     const [count, setCount]=useState(0);
+   let [increment, setIncrement] = useState(0);
+   let [openComment,setOpenComment] = useState(false);
+
+    function hundelOpen(){
+        setOpenComment(true);
+            
+    }
+
+    function hundelClose(e){
+        e.preventDefault();
+        let comment = [];
+        comment.push(e.target.value);
+
+        useEffect(()=>{
+            openComment = false;
+        },[])
+
+    }
+    
+   
+    
+
+    function hundleIncrement(){
+        setIncrement(increment+1)
+    }
     function hundelClick(){
         setCount(count+1)
     }
+    
 
       
     return(
@@ -32,7 +58,7 @@ function Tweets({user}){
                             <div className="tweet-image">
                                 <img src={users.imgContent} alt="" />
                             </div>
-                            <AllIcons onClick={hundelClick} value={count}  /> 
+                            <AllIcons onClick={hundelClick} value={count} click={hundleIncrement} increment={increment} onOpen={hundelOpen } istrue={openComment} close={hundelClose} /> 
                             
                                 
                         </div>

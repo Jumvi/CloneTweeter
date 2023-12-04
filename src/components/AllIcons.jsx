@@ -5,13 +5,44 @@ import coeur from '../images/coeur.png';
 import share from '../images/Share.png'
 import TweetImage from './TweetImage';
 
-function AllIcons({onClick,value}) {
+
+function AllIcons({onClick,value,click,increment,onOpen,istrue, close}) {
     return (
         <div className='tweet-actions'>
-<button onClick={onClick}><img className='tweet-action' src={comment} alt="comment" />{value}</button>
-<button onClick={onClick}><img className='tweet-action' src={retweet} alt="retweet" />{value}</button>
-<button onClick={onClick}><img className='tweet-action' src={coeur} alt="healt" />{value}</button>
-<button onClick={onClick}><img className='tweet-action' src={share} alt="share" />{value}</button>
+            <button onClick={onOpen} className='my-button'>
+                <div className='conte'>
+                    <img className='tweet-action' src={comment} alt="comment" />
+                    {
+                        istrue ?  (
+                            <div>
+                                <input type="text" placeholder='Entrez votre commentaire' name='comment' />
+                                    <button type='submit' onClick={click} >
+                                         envoyer
+                                     </button> 
+                            </div> )
+                        : 
+                            null
+                    }
+                    {increment}
+
+                </div>
+                <p>comment</p>
+            </button>
+            <button className='my-button'>
+                <img className='tweet-action' src={retweet} alt="retweet" />
+                <p>retweet</p>
+            </button>
+            <button onClick={onClick} className='my-button'>
+                <div className='conte'>
+                    <img className='tweet-action' src={coeur} alt="healt" />
+                    {value}
+                </div>
+                <p>like</p>
+            </button>
+            <button className='my-button' >
+                <img className='tweet-action' src={share} alt="share" />
+                <p>share</p>
+            </button>
             
         </div>
     );
