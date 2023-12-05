@@ -233,7 +233,7 @@ body{
 .my-nave li a{
     text-decoration: none;
     color: white;
-    line-height: 2;
+    line-height: 3;
 }
 
 .my-nave li{
@@ -285,5 +285,22 @@ body{
     size: 20px;
 }
 
+.profil{
+    display: flex;
+    justify-content: space-between;
+}
+
+.profil-tweet{
+    width: 50rem;
+    border: 1px solid rgb(102, 101, 100);
+}
 
 
+.side-button button{
+    color:white;
+    background-color: blue;
+    width: 8rem;
+    height: 2rem;
+    border-radius: 16px;
+    
+}

@@ -9,6 +9,8 @@ import SideBare from '../components/SideBare';
 import Avatar from '../components/Avatar';
 import profil from '../images/profile-photo.png';
 import UserProfil from '../components/UserProfil';
+import { profildata } from '../components/profildata';
+
 
 
 function Home() {
@@ -17,47 +19,7 @@ function Home() {
     isPastName:'Mvi',
     isPseudo: '@Jmvi'
   }
-  const title =[{
-    text: 'je suis l\'auteur de ce tweet de la france à la rdc je suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdc',
-    src:phoprofil,
-    pseudo:'@cnn1',
-    author:'CNN',
-    verifiedIcon:verified,
-    hour:'il ya 1h',
-    imgContent:null,
-    isCert:false
-   },
-   {
-    text: 'je suis l\'auteur de ce tweet',
-    src:phoprofil,
-    pseudo:'@cnn1',
-    author:'CNN',
-    verifiedIcon:verified,
-    hour:'il ya 1h',
-    imgContent:tweetimage,
-    isCert: true
-   },
-   {
-    text: 'je suis l\'auteur de ce tweet',
-    src:phoprofil,
-    pseudo:'@cnn1',
-    author:'CNN',
-    verifiedIcon:verified,
-    hour:'il ya 1h',
-    imgContent:tweetimage,
-    isCert:true
-   },
-   {
-    text: 'je suis l\'auteur de ce tweet',
-    src:phoprofil,
-    pseudo:'@cnn1',
-    author:'CNN',
-    verifiedIcon:verified,
-    hour:'il ya 1h',
-    imgContent:tweetimage,
-    isCert:false
-   }];
-
+ 
    
   
   return (
@@ -76,12 +38,12 @@ function Home() {
       <Header />
       <TweetEditor />
      
-      <Tweets user={title}/>
+      <Tweets user={profildata}/>
       
       
     </main>
 
-    <aside className="left-sidebar">
+    <aside className="right-sidebar">
       <SideBare />
       
 

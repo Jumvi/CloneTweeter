@@ -39,8 +39,8 @@ function SideBare() {
                </li>
             </ul>              
          </nav>   
-             <div>
-                <button className='button'>
+             <div className='side-button'>
+                <button >
                     Tweet
                 </button>
              </div>

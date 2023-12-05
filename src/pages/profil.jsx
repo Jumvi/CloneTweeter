@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Tweets from '../components/Tweets';
+import { profildata } from '../components/profildata';
+import SideBare from '../components/SideBare';
 
-function Profil(props) {
+function Profil() {
+     const [data,setData] = useState(profildata);
     return (
-        <div>
-            <h3>in developement the user profil page</h3>
+        <div className='profil'>
+            <SideBare />
+            <div className='profil-tweet'>
+                <Tweets user={data}  />
+            </div>
+            
+            <SideBare />
         </div>
     );
 }
