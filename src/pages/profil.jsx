@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Tweets from '../components/Tweets';
 import { profildata } from '../components/profildata';
 import SideBare from '../components/SideBare';
+import Trends from '../components/trends';
 
 function Profil() {
      const [data,setData] = useState(profildata);
@@ -12,7 +13,7 @@ function Profil() {
                 <Tweets user={data}  />
             </div>
             
-            <SideBare />
+            <Trends />
         </div>
     );
 }

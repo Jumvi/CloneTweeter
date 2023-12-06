@@ -10,6 +10,7 @@ import Avatar from '../components/Avatar';
 import profil from '../images/profile-photo.png';
 import UserProfil from '../components/UserProfil';
 import { profildata } from '../components/profildata';
+import Trends from '../components/trends';
 
 
 
@@ -44,7 +45,7 @@ function Home() {
     </main>
 
     <aside className="right-sidebar">
-      <SideBare />
+     <Trends />
       
 
     </aside>

@@ -236,10 +236,14 @@ body{
     line-height: 3;
 }
 
+.my-nave li img{
+    border: none;
+}
+
 .my-nave li{
     list-style: none;
     margin-left: 5em;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 .navigation{
@@ -250,7 +254,7 @@ body{
 
 .sidebare{
     text-align: center;
-    width: 19em;
+    width: 17em;
 
 }
 
@@ -302,5 +306,154 @@ body{
     width: 8rem;
     height: 2rem;
     border-radius: 16px;
+    margin-left: 5rem;
     
+}
+
+.bookmaker{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 13rem;
+}
+
+.explore{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 13rem;
+}
+
+.more{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 13rem;
+}
+
+.notification{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 13rem;
+}
+
+.message{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 13rem;
+}
+
+.lists{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 13rem;
+}
+
+.search{
+    color: white;
+    display: flex;
+    gap: 20px;
+    background-color: #222527;
+    border-radius: 16px;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.search input{
+    background-color: #222527;
+    border: none;
+    border-radius: 16px;
+    color: white;
+    border: #222527 ;
+   
+}
+
+.search input::placeholder{
+    color: white;
+    font-size: 15px;
+}
+
+.trends-for-you{
+    background-color: #222527;
+    margin-top: 5px;
+    border-radius: 16px;
+    padding: 10px;
+    margin-left: 10px;
+    
+}
+
+.trends-affichage{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.trends-affichage h5{
+    color :white;
+}
+
+.trends-affichage p{
+    font-size: 14px;
+}
+
+.trends-for-you h3{
+    
+    margin-bottom: 10px;
+}
+
+.trends-for-you a{
+    text-decoration: none;
+    margin: 10px;
+}
+
+.tfyou-title{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.whoToFallow{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    
+}
+
+.layoutFallower{
+    display: flex;
+    gap: 10px;
+}
+
+.who-to-follow{
+    background-color: #222527;
+    border-radius: 16px;
+    color: white;
+    margin: 10px;
+    padding: 10px;
+}
+
+.who-to-follow a{
+    text-decoration: none;
+}
+
+.layoutFallower img{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+
+.layoutFallower {
+}
+
+.fello-title{
+    margin-bottom: 10px;
+
+}
+
+.whoToFallow button{
+    color: black;
+    border-radius: 16px;
+    border: none;
+    width: 5rem;
+}
+
+.right-sidebar{
+    margin-right: 10px;
 }
