@@ -210,7 +210,7 @@ body{
 
 
 
-.conte{
+.healt{
     display: flex;
     gap: 10px;
 }
@@ -219,15 +219,18 @@ body{
    visibility: hidden;
     background-color: #6E767D;
 }
-
 .my-button:hover p{
     visibility: visible;
     color: white;
     
 }
 
-.my-button:hover{
-    color: #2881c5;
+ .healt:hover{
+    background-color: #28c5bd;
+}
+.healt:active{
+    background-color: red;
+    color: rgb(148, 130, 130);
 }
 
 .my-nave li a{
@@ -238,6 +241,20 @@ body{
 
 .my-nave li img{
     border: none;
+}
+
+.comment{
+    display: flex;
+    gap: 10px;
+}
+
+.comment:hover{
+    background-color: #28c5bd;
+
+}
+
+.comment:active{
+    background-color: blue;
 }
 
 .my-nave li{

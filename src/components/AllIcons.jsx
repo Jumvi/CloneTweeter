@@ -12,7 +12,7 @@ function AllIcons({onClick,value,click,increment,onOpen,istrue, close}) {
     return (
         <div className='tweet-actions'>
             <button onClick={onOpen} className='my-button'>
-                <div className='conte'>
+                <div className='comment'>
                     <img className='tweet-action' src={comment} alt="comment" />
                     {
                         istrue ?  (
@@ -35,7 +35,7 @@ function AllIcons({onClick,value,click,increment,onOpen,istrue, close}) {
                 <p>retweet</p>
             </button>
             <button onClick={onClick} className='my-button'>
-                <div className='conte'>
+                <div className='healt'>
                     <img className='tweet-action' src={coeur} alt="healt" />
                     {value}
                 </div>
