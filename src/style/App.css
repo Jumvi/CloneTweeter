@@ -410,8 +410,7 @@ body{
     font-size: 14px;
 }
 
-.trends-for-you h3{
-    
+.trends-for-you h3{   
     margin-bottom: 10px;
 }
 
@@ -473,4 +472,19 @@ body{
 
 .right-sidebar{
     margin-right: 10px;
+}
+
+.avatar button{
+    background-color: black;
+    border: none;
+    
+}
+
+.Users-profils{
+    color:white;
+}
+
+.avatar button{
+    background-color: black;
+   border: none;
 }

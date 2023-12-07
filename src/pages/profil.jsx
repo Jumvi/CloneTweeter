@@ -3,6 +3,7 @@ import Tweets from '../components/Tweets';
 import { profildata } from '../components/profildata';
 import SideBare from '../components/SideBare';
 import Trends from '../components/trends';
+import UsersProfil from '../components/usersProfil';
 
 function Profil() {
      const [data,setData] = useState(profildata);
@@ -10,7 +11,7 @@ function Profil() {
         <div className='profil'>
             <SideBare />
             <div className='profil-tweet'>
-                <Tweets user={data}  />
+                <UsersProfil data={profildata} />
             </div>
             
             <Trends />

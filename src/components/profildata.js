@@ -13,7 +13,8 @@ import cnn from '../images/tweet-profile-photo.png'
         verifiedIcon:verified,
         hour:'il ya 1h',
         imgContent:null,
-        isCert:false
+        isCert:false,
+        id:1
        },
        {
         text: 'je suis l\'auteur de ce tweet',
@@ -23,7 +24,8 @@ import cnn from '../images/tweet-profile-photo.png'
         verifiedIcon:verified,
         hour:'il ya 1h',
         imgContent:tweetimage,
-        isCert: true
+        isCert: true,
+        id:2
        },
        {
         text: 'je suis l\'auteur de ce tweet',
@@ -33,7 +35,8 @@ import cnn from '../images/tweet-profile-photo.png'
         verifiedIcon:verified,
         hour:'il ya 1h',
         imgContent:tweetimage,
-        isCert:true
+        isCert:true,
+        id:3
        },
        {
         text: 'je suis l\'auteur de ce tweet',
@@ -43,7 +46,8 @@ import cnn from '../images/tweet-profile-photo.png'
         verifiedIcon:verified,
         hour:'il ya 1h',
         imgContent:tweetimage,
-        isCert:false
+        isCert:false,
+        id:4
        }];
 
 

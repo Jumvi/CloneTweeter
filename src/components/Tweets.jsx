@@ -5,6 +5,7 @@ import verifiedIcon from '../images/Verified.png'
 import TweetImage from "./TweetImage";
 import AllIcons from "./AllIcons";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -49,7 +50,7 @@ function Tweets({user}){
             {user.map((users,key)=> (
                     <div className="tweet" key={key}>
                         <div className="tweet-avatar"> 
-                            <Avatar src={users.src} />
+                           <NavLink to="/profil"><Avatar src={users.src} /></NavLink> 
                         </div>
                         <div className="tweet-content">
                             <div className="tweet-title">

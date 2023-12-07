@@ -1,10 +1,10 @@
 
 
 
-function Avatar ({src}){
+function Avatar ({src, id,avatarClick}){
     return(
         <div className='avatar'>
-            <img src={src} alt="" />
+            <button id={id} onClick={avatarClick}><img src={src} alt="" /></button>
         </div>
         
             
