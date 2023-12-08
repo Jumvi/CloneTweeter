@@ -9,7 +9,7 @@ function WhoToFollow({fallow}) {
                 fallow.map((fallows,key)=>(
                     <div className='whoToFallow' key={key}>
                         <div className='layoutFallower'>
-                            <div>
+                            <div className='fallow-button'>
                                 <Avatar src={fallows.src}/>
                             </div>
                             <div className='otherUser'>
@@ -17,7 +17,7 @@ function WhoToFollow({fallow}) {
                                 <span>{fallows.pseudo}</span>
                             </div>
                         </div>
-                        <button>
+                        <button className='follow-me'>
                             <h4>fallow</h4>
                         </button>
                             

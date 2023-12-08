@@ -60,6 +60,9 @@ body{
     flex: 0 0 70px;
     /*padding: 0 rem;*/
 }
+.avatar button{
+    width: auto;
+}
 
 .avatar img {
     max-width: 100%;
@@ -463,11 +466,18 @@ body{
 
 }
 
-.whoToFallow button{
+.whoToFallow .fallow-button{
     color: black;
-    border-radius: 16px;
     border: none;
-    width: 5rem;
+    border-radius: 16px;
+    width: 2rem;
+    height: 2rem;
+}
+.follow-me{
+    width: 4rem;
+    height: 2rem;
+    border-radius: 16px;
+    cursor: pointer;
 }
 
 .right-sidebar{
@@ -482,6 +492,10 @@ body{
 
 .Users-profils{
     color:white;
+}
+
+.user-title{
+    margin-top: 1rem;
 }
 
 .avatar button{
