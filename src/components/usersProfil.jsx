@@ -1,28 +1,40 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { NavLink, Navigate, useParams } from 'react-router-dom';
 import Avatar from './Avatar';
+import Tweets from './Tweets';
+import { profildata } from './profildata';
+
+
 
 function UsersProfil({data}) {
-    const {id} =useParams()
     return (
         <div className='Users-profils'>
             {
-                {id} == data.id ? (
-                    <div>
-                        <div className='profil-users'>
-                            <Avatar src={data.src} avatarClick={handlAvatar} />
-                            <button>Edite profil</button>
+                <div>
+                    <div className='profil-users'>
+                        <div className='user-layout'>
+                            <Avatar id={data.id} src={data.src} />
+                            <button className='user-button1'>Edite profil</button>
                         </div>
-                        <div className='auther-certification'>
-                            <h4>{data.author}</h4>
+                        
+                    </div>
+                    <div className='auther-certification'>
+                        <h4>{data.author}</h4>
                             {
                                 data.isCert ? (
-                                    <img src={data.verified} alt="certification" />
+                                    <img src={data.verifiedIcon} alt="certification" />
                                 ): 
                                 null
                             }
+                        <span>{data.pseudo}</span>
+                        <p>{data.description}</p>
+                        <div className='user-follow'>
+                            <span>{data.following}</span>
+                            <span>{data.follower}</span>
                         </div>
-                        <div>
+                       
+                    </div>
+                        <div className='user-navigation'>
                             <NavLink to="/" >About</NavLink>
                             <NavLink to="/" >Tweets</NavLink>
                             <NavLink to="/" >Other</NavLink>
@@ -30,11 +42,11 @@ function UsersProfil({data}) {
                         </div>
                     </div>
                     
-                )
-                :
-                <p>id nom correspondant</p>
+               
             }
-            <div></div>
+            <div>
+                <Tweets user={profildata} />
+            </div>
         </div>
     );
 }

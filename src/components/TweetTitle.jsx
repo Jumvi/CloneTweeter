@@ -15,7 +15,7 @@ function TweetTile({user}){
                         
                         
                     )
-                    :
+                            :
                     null
                 }
             

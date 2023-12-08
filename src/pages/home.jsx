@@ -37,17 +37,11 @@ function Home() {
     </aside>
     <main className="timeline">
       <Header />
-      <TweetEditor />
-     
-      <Tweets user={profildata}/>
-      
-      
+      <TweetEditor /> 
+      <Tweets user={profildata}/>   
     </main>
-
     <aside className="right-sidebar">
-     <Trends />
-      
-
+      <Trends />
     </aside>
     
     </>

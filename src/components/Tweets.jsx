@@ -9,6 +9,7 @@ import { NavLink } from "react-router-dom";
 
 
 
+
 function Tweets({user}){
     const [count, setCount]=useState(0);
    let [increment, setIncrement] = useState(0);
@@ -42,6 +43,10 @@ function Tweets({user}){
             setCount(count -1)
         }
     }
+
+  function clickAvatar(){
+    return getId;
+  }   
     
 
       
@@ -50,7 +55,7 @@ function Tweets({user}){
             {user.map((users,key)=> (
                     <div className="tweet" key={key}>
                         <div className="tweet-avatar"> 
-                           <NavLink to="/profil"><Avatar src={users.src} /></NavLink> 
+                           <NavLink to={`profil/${users.id}`} ><Avatar src={users.src}  id={users.id} avatarClick={clickAvatar} /></NavLink> 
                         </div>
                         <div className="tweet-content">
                             <div className="tweet-title">

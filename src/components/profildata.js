@@ -14,7 +14,10 @@ import cnn from '../images/tweet-profile-photo.png'
         hour:'il ya 1h',
         imgContent:null,
         isCert:false,
-        id:1
+        id:1,
+        description:'personalité public et chef d\'entreprise',
+        following:'150 K following',
+        follower:'250 K  followers'
        },
        {
         text: 'je suis l\'auteur de ce tweet',
@@ -25,7 +28,8 @@ import cnn from '../images/tweet-profile-photo.png'
         hour:'il ya 1h',
         imgContent:tweetimage,
         isCert: true,
-        id:2
+        id:2,
+        description:'personalité public et chef d\'entreprise'
        },
        {
         text: 'je suis l\'auteur de ce tweet',
@@ -36,7 +40,8 @@ import cnn from '../images/tweet-profile-photo.png'
         hour:'il ya 1h',
         imgContent:tweetimage,
         isCert:true,
-        id:3
+        id:3,
+        description:'personalité public et chef d\'entreprise'
        },
        {
         text: 'je suis l\'auteur de ce tweet',
@@ -47,7 +52,8 @@ import cnn from '../images/tweet-profile-photo.png'
         hour:'il ya 1h',
         imgContent:tweetimage,
         isCert:false,
-        id:4
+        id:4,
+        description:'personalité public et chef d\'entreprise'
        }];
 
 

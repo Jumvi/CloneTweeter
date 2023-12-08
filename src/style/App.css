@@ -502,3 +502,59 @@ body{
     background-color: black;
    border: none;
 }
+
+.profil-users{
+    background-repeat: no-repeat;
+   background-color: greenyellow;
+   height: 10rem;  
+   border: 2px solid rgb(196, 161, 161);  
+}
+
+.user-layout{
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-end;
+    margin-top: 5rem;
+    padding:0 1rem;
+}
+
+.user-layout .fallow-button {
+    border-radius: 16px;
+    background-color: greenyellow;
+}
+
+.user-button1{
+    background-color: blue;
+    width: 6rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+    border-radius: 16px;
+}
+
+.Users-profils{
+    padding: 2rem;
+    border-radius: 16px;
+}
+
+.user-follow{
+    display: flex;
+    gap: 2rem;
+    margin:2rem 0;
+    cursor: pointer;
+}
+
+.user-navigation{
+    display: flex;
+    gap: 8rem;
+
+}
+.user-navigation a{
+    text-decoration: none;
+    color: white;
+}
+
+.user-navigation a:hover{
+    color:blue;
+    border-bottom: #D9D9D9;
+}
+
