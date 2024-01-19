@@ -4,6 +4,11 @@ import verified from '../images/Verified.png'
 import tweetimage from '../images/tweet-image.png'
 import imagetweeter from '../images/imagetweeter.png'
 import cnn from '../images/tweet-profile-photo.png'
+import retweet from '../images/Retweet.png';
+import coeur from '../images/coeur.png';
+import share from '../images/Share.png'
+
+const date = new Date()
 
  export const profildata=   [{
         text: 'je suis l\'auteur de ce tweet de la france à la rdc je suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdc',
@@ -17,7 +22,10 @@ import cnn from '../images/tweet-profile-photo.png'
         id:1,
         description:'personalité public et chef d\'entreprise',
         following:'150 K following',
-        follower:'250 K  followers'
+        follower:'250 K  followers',
+        like:coeur
+
+
        },
        {
         text: 'je suis l\'auteur de ce tweet',
@@ -29,7 +37,8 @@ import cnn from '../images/tweet-profile-photo.png'
         imgContent:tweetimage,
         isCert: true,
         id:2,
-        description:'personalité public et chef d\'entreprise'
+        description:'personalité public et chef d\'entreprise',
+        like:coeur
        },
        {
         text: 'je suis l\'auteur de ce tweet',
@@ -41,7 +50,8 @@ import cnn from '../images/tweet-profile-photo.png'
         imgContent:tweetimage,
         isCert:true,
         id:3,
-        description:'personalité public et chef d\'entreprise'
+        description:'personalité public et chef d\'entreprise',
+        like:coeur
        },
        {
         text: 'je suis l\'auteur de ce tweet',
@@ -53,7 +63,8 @@ import cnn from '../images/tweet-profile-photo.png'
         imgContent:tweetimage,
         isCert:false,
         id:4,
-        description:'personalité public et chef d\'entreprise'
+        description:'personalité public et chef d\'entreprise',
+        like:coeur
        }];
 
 

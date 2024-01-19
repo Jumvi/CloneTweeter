@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import comment from '../images/comment.png';
 import retweet from '../images/Retweet.png';
 import coeur from '../images/coeur.png';
 import share from '../images/Share.png'
 import TweetImage from './TweetImage';
 import { CiBookmark } from "react-icons/ci";
+import { useParams } from 'react-router-dom';
+import { profildata } from './profildata';
+
+
 
 
 
 function AllIcons({onClick,value,click,increment,onOpen,istrue, close}) {
+    const [publicationData, setPublicationData] = useState(profildata)
+    const {id:likeId} = useParams()
+
     return (
         <div className='tweet-actions'>
             <button onClick={onOpen} className='my-button'>
@@ -36,7 +43,7 @@ function AllIcons({onClick,value,click,increment,onOpen,istrue, close}) {
             </button>
             <button onClick={onClick} className='my-button'>
                 <div className='healt'>
-                    <img className='tweet-action' src={coeur} alt="healt" />
+                    <img className='tweet-action' src={like} alt="healt" />
                     {value}
                 </div>
                 <p>like</p>

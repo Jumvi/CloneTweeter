@@ -1,9 +1,16 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 
 
 body{
     background-color: black;
-    color: white;
+    color: white; 
     margin: 0 auto;
     max-width: 1800px;
 }
@@ -182,7 +189,6 @@ body{
     border-style: solid;
     border-width: 1px;
 }
-
 .tweet-actions {
     display: flex;
     justify-content: center;
@@ -228,9 +234,9 @@ body{
     
 }
 
- .healt:hover{
+ /* .healt:hover{
     background-color: #28c5bd;
-}
+} */
 .healt:active{
     background-color: red;
     color: rgb(148, 130, 130);
@@ -556,5 +562,11 @@ body{
 a:hover{
     color:blue;
     text-decoration: underline;
+}
+
+.ic{
+    display: flex;
+    justify-content: space-between;
+    gap: 70px;
 }
 

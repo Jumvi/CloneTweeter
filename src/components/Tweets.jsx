@@ -4,8 +4,11 @@ import TweetTile from "./TweetTitle";
 import verifiedIcon from '../images/Verified.png'
 import TweetImage from "./TweetImage";
 import AllIcons from "./AllIcons";
-import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { createContext, useEffect, useState } from "react";
+import { NavLink,useParams } from "react-router-dom";
+import { profildata } from "./profildata";
+import { useContext } from "react";
+import { likeTweetContext } from "../feature/clickContext";
 
 
 
@@ -14,6 +17,11 @@ function Tweets({user}){
     const [count, setCount]=useState(0);
    let [increment, setIncrement] = useState(0);
    let [openComment,setOpenComment] = useState(false);
+   let [myId,setMyId]= useState("")
+   const [publication,setPublication] = useState(profildata)
+
+   
+   
 
     function hundelOpen(){
         setOpenComment(true);
@@ -26,7 +34,7 @@ function Tweets({user}){
         comment.push(e.target.value);
 
         useEffect(()=>{
-            openComment = false;
+            setOpenComment(false)
         },[])
 
     }
@@ -37,16 +45,32 @@ function Tweets({user}){
     function hundleIncrement(){
         setIncrement(increment+1)
     }
-    function hundelClick(){
+    function hundelClick(e){
+
+        // récupération de l'id de la publication qui a été liké
+       setMyId(myId=e.target.id);
+       const likeTweet = profildata.find((object) => object.id === parseInt(myId))
+
+       //incrémentation de la valeur du like de 1
         setCount(count+1)
         if(count==1){
             setCount(count -1)
         }
+
+        // mise à jour de la valeur de likeTweet
+
+        const {setLikeTweet}=useContext(likeTweetContext);
+        setLikeTweet(likeTweet)
+
     }
 
   function clickAvatar(){
     return getId;
-  }   
+  }  
+  
+  
+
+ 
     
 
       
@@ -67,7 +91,20 @@ function Tweets({user}){
                             <div className="tweet-image">
                                 <img src={users.imgContent} alt="" />
                             </div>
-                            <AllIcons onClick={hundelClick} value={count} click={hundleIncrement} increment={increment} onOpen={hundelOpen } istrue={openComment} close={hundelClose} /> 
+                            <div className="ic">
+                                <div>
+                                    <p>{count}</p>
+                                    <img src={users.like} onClick={hundelClick}  id={users.id} alt="" />
+                                </div>
+                                <div>
+                                    <img src={users.like} alt="" />
+                                </div><div>
+                                    <img src={users.like} alt="" />
+                                </div><div>
+                                    <img src={users.like} alt="" />
+                                </div>
+                            </div>
+                            {/* <AllIcons onClick={hundelClick} value={count} click={hundleIncrement} increment={increment} onOpen={hundelOpen } istrue={openComment} close={hundelClose} />  */}
                             
                                 
                         </div>

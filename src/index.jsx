@@ -43,7 +43,7 @@ const router = createBrowserRouter([
     element:<Profil />
   },
   {
-    path:'/profil/:id',
+    path:'/profil/',
     element:<Profil/>
   },
   {
