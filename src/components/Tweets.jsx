@@ -65,14 +65,7 @@ function Tweets({user}){
 
   function clickAvatar(){
     return getId;
-  }  
-  
-  
-
- 
-    
-
-      
+  }     
     return(
         <div className="tweets">
             {user.map((users,key)=> (

@@ -9,7 +9,7 @@ import { profildata } from './profildata';
 function UsersProfil({data}) {
     return (
         <div className='Users-profils'>
-            {
+            
                 <div>
                     <div className='profil-users'>
                         <div className='user-layout'>
@@ -43,9 +43,9 @@ function UsersProfil({data}) {
                     </div>
                     
                
-            }
+            
             <div>
-                <Tweets user={profildata} />
+                {/* <Tweets user={profildata} /> */}
             </div>
         </div>
     );

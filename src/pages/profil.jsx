@@ -1,46 +1,48 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Tweets from '../components/Tweets';
-import { profildata } from '../components/profildata';
 import SideBare from '../components/SideBare';
 import Trends from '../components/trends';
 import UsersProfil from '../components/usersProfil';
-import { useParams } from 'react-router-dom';
 // import { likeTweetContext } from '../feature/clickContext';
 // import TweetTile from '../components/TweetTitle';
 import { useSelector } from 'react-redux';
-import TweetTile from '../components/TweetTitle';
-
-
-function Profil() {
-    //  const{likeTweet} =useContext(likeTweetContext);
-    //  tweetListe.concat(likeTweet);
-    const tweetData = useSelector((state)=>state.tweet);
-     const [tweetListe,setTweetList] = useState(tweetData);
+import { profildata } from '../components/profildata';
+import Avatar from '../components/Avatar';
+import AvatarProfil from '../components/AvatarProfil';
+import TheUserProfil from '../components/TheUserProfil';
+import { userData } from '../Data/theUSerData';
 
 
 
-    const putOrderOnTweet = (a,b)=>{
-        return a.timestamp - b.timestamp;
-    }
-    
-useEffect(()=>{
-    setTweetList(tweetData);
-    console.log(tweetListe)
-},[])
 
-     
+    function Profil() {
+        //  const{likeTweet} =useContext(likeTweetContext);
+        //  tweetListe.concat(likeTweet);
+        const tweetData = useSelector((state)=>state.tweet.slice());
+        const [tweetListe,setTweetList] = useState(tweetData);
 
-    return (
 
-        <div className='profil'>
-            <SideBare />
-            <div className='profil-tweet'>
-                <Tweets user={tweetListe}/>
+
+        const putOrderOnTweet = (a,b)=>{
+            return   -(a.timestamp - b.timestamp);
+        }
+        
+    useEffect(()=>{
+        setTweetList((prevTweetListe) => prevTweetListe.sort(putOrderOnTweet));
+    },[])
+        return (
+
+            <div className='profil'>
+                <SideBare />
+                <div className='profil-tweet'>
+                    <TheUserProfil user={userData}/>
+                    <Tweets user={tweetListe}/> 
+                    <Tweets user={profildata}/> 
+                </div>
+                
+                <Trends />
             </div>
-            
-            <Trends />
-        </div>
-    );
-}
+        );
+    }
 
-export default Profil;
+    export default Profil;

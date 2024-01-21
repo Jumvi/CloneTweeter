@@ -576,3 +576,22 @@ a:hover{
 .text{
     color: antiquewhite;
 }
+
+.bg-profil{
+    background-image: url("../images/diamant.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 15rem;
+    top: 0;
+    
+    
+}
+.profilIdentity{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 9rem;
+}
+
+.author-title{
+    display: flex;
+}
