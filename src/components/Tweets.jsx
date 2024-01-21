@@ -4,11 +4,14 @@ import TweetTile from "./TweetTitle";
 import verifiedIcon from '../images/Verified.png'
 import TweetImage from "./TweetImage";
 import AllIcons from "./AllIcons";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState,useSelector } from "react";
 import { NavLink,useParams } from "react-router-dom";
 import { profildata } from "./profildata";
 import { useContext } from "react";
-import { likeTweetContext } from "../feature/clickContext";
+import {useDispatch } from "react-redux";
+import { addTweet } from "../feature/tweetSlicer";
+
+
 
 
 
@@ -17,11 +20,9 @@ function Tweets({user}){
     const [count, setCount]=useState(0);
    let [increment, setIncrement] = useState(0);
    let [openComment,setOpenComment] = useState(false);
-   let [myId,setMyId]= useState("")
-   const [publication,setPublication] = useState(profildata)
-
-   
-   
+   let [myId,setMyId]= useState("");
+   const [publication,setPublication] = useState(profildata);
+   const dispatch = useDispatch()  ;
 
     function hundelOpen(){
         setOpenComment(true);
@@ -39,9 +40,6 @@ function Tweets({user}){
 
     }
     
-   
-    
-
     function hundleIncrement(){
         setIncrement(increment+1)
     }
@@ -49,8 +47,9 @@ function Tweets({user}){
 
         // récupération de l'id de la publication qui a été liké
        setMyId(myId=e.target.id);
-       const likeTweet = profildata.find((object) => object.id === parseInt(myId))
-
+       const likeTweet = profildata.find((object) => object.id === parseInt(myId));
+       dispatch(addTweet(likeTweet))
+     
        //incrémentation de la valeur du like de 1
         setCount(count+1)
         if(count==1){
@@ -59,8 +58,8 @@ function Tweets({user}){
 
         // mise à jour de la valeur de likeTweet
 
-        const {setLikeTweet}=useContext(likeTweetContext);
-        setLikeTweet(likeTweet)
+        // const {setLikeTweet}=useContext(likeTweetContext);
+        // setLikeTweet(likeTweet)
 
     }
 

@@ -5,11 +5,17 @@ import gif from '../images/gif.png';
 import poll from '../images/stats.png';
 import calendar from '../images/calendar.png';
 import Avatar from './Avatar';
+import { useState } from 'react';
+ 
 
 
 
 
 function TweetEditor(){
+    const [text,setText] = useState("");
+    
+
+    
     return(
         <div className='tweet-editor'>
             <div >
@@ -17,7 +23,7 @@ function TweetEditor(){
             </div>
             <div className='tweet-editor-form'>
                  <div >
-                    <textarea type="text" className='tweet-editor-input' placeholder='What s happenning' />
+                    <input type="text" className='tweet-editor-input' placeholder='What s happenning ' onChange={(e)=>{e.target.value}}/>
                 </div>
                 <div className='tweet-editor-buttons'>
                     <div className='tweet-editor-actions' >
@@ -27,7 +33,7 @@ function TweetEditor(){
                         <img src= {calendar} alt="" />
                     </div>
                     <div>
-                        <button className='button'>Tweet</button>
+                        <button className='button' >Tweet</button>
                     </div>
                 </div>
             

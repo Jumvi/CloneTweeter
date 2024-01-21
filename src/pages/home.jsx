@@ -11,7 +11,7 @@ import profil from '../images/profile-photo.png';
 import UserProfil from '../components/UserProfil';
 import { profildata } from '../components/profildata';
 import Trends from '../components/trends';
-import { LikeTweetProvider } from '../feature/clickContext';
+// import { LikeTweetProvider } from '../feature/clickContext';
 
 
 
@@ -39,9 +39,9 @@ function Home() {
     <main className="timeline bg-black">
       <Header />
       <TweetEditor /> 
-      <LikeTweetProvider>
+      {/* <LikeTweetProvider> */}
         <Tweets user={profildata}/>  
-      </LikeTweetProvider>    
+      {/* </LikeTweetProvider>     */}
     </main>
     <aside className="right-sidebar bg-black">
       <Trends />

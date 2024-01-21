@@ -10,6 +10,9 @@ import Bookmaker from './pages/bookmaker';
 import Lists from './pages/lists';
 import Profil from './pages/profil';
 import More from './pages/more';
+import { Provider } from 'react-redux';
+import store from './feature/store';
+
 
 
 
@@ -54,6 +57,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <Provider store={store}>
+      <RouterProvider router={router}/> 
+    </Provider>
+    
   </React.StrictMode>
 );
