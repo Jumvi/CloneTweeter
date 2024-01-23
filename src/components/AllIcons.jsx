@@ -8,7 +8,7 @@ import { CiBookmark } from "react-icons/ci";
 
 
 
-function AllIcons({onClick,value,click,increment,onOpen,istrue, close}) {
+function TweetcallToActionIcons({onClick,value,click,increment,onOpen,istrue, close}) {
     return (
         <div className='tweet-actions'>
             <button onClick={onOpen} className='my-button'>
@@ -55,4 +55,4 @@ function AllIcons({onClick,value,click,increment,onOpen,istrue, close}) {
     );
 }
 
-export default AllIcons;
+export default TweetcallToActionIcons;
