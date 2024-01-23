@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     tweet:[],
+    value:0
 };
 
 const tweetSlice = createSlice({
@@ -9,17 +10,20 @@ const tweetSlice = createSlice({
     initialState,
     reducers:{
         addTweet:(state,action)=>{
-            // const ifTweetEsxist = state.tweet.find((object)=>isPlainObject.id === action.payload.id)
-            // if(ifTweetEsxist !==){
-            //     return state.tweet
-                
-               
-            // }else{
-                state.tweet.push(action.payload)
-            }
+                state.tweet.push(action.payload);
+            },
+        incrementValue:(state)=>{
+            state.value +1;
+        },
+        decrementValue:(state)=>{
+            state.value -1;
+        },
+        removeTweet:(state,action)=>{
+            state.tweet.pop(action.payload);
+        }
             
         },
 });
 
-export const {addTweet}=tweetSlice.actions;
-export default tweetSlice.reducer
+export const {addTweet,incrementValue,decrementValue,removeTweet}=tweetSlice.actions;
+export default tweetSlice.reducer  

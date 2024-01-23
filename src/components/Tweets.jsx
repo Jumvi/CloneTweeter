@@ -1,68 +1,58 @@
 import Avatar from "./Avatar";
-import cnn from '../images/tweet-profile-photo.png'
 import TweetTile from "./TweetTitle";
-import verifiedIcon from '../images/Verified.png'
-import TweetImage from "./TweetImage";
-import AllIcons from "./AllIcons";
-import { createContext, useEffect, useState,useSelector } from "react";
-import { NavLink,useParams } from "react-router-dom";
+import {  useContext, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { profildata } from "./profildata";
-import { useContext } from "react";
 import {useDispatch } from "react-redux";
 import { addTweet } from "../feature/tweetSlicer";
-
-
-
+import {incrementValue} from "../feature/tweetSlicer";
+import {removeTweet} from "../feature/tweetSlicer";
+import { contextCounter } from "../index.jsx";
 
 
 
 function Tweets({user}){
-    const [count, setCount]=useState(0);
-   let [increment, setIncrement] = useState(0);
-   let [openComment,setOpenComment] = useState(false);
-   let [myId,setMyId]= useState("");
-   const [publication,setPublication] = useState(profildata);
-   const dispatch = useDispatch()  ;
 
-    function hundelOpen(){
-        setOpenComment(true);
+    const [isLiked, setIsLiked]= useState(true);
+    const { counter, setCounter } = useContext(contextCounter);
+    let [myId,setMyId]= useState("");
+    const dispatch = useDispatch()  ;
+
+    // function hundelOpen(){
+    //     setOpenComment(true);
             
-    }
+    // }
 
-    function hundelClose(e){
-        e.preventDefault();
-        let comment = [];
-        comment.push(e.target.value);
+    // function hundelClose(e){
+    //     e.preventDefault();
+    //     let comment = [];
+    //     comment.push(e.target.value);
+    //     useEffect(()=>{
+    //         setOpenComment(false)
+    //     },[])
 
-        useEffect(()=>{
-            setOpenComment(false)
-        },[])
+    // }
 
-    }
     
-    function hundleIncrement(){
-        setIncrement(increment+1)
-    }
+
+    
     function hundelClick(e){
-
-        // récupération de l'id de la publication qui a été liké
-       setMyId(myId=e.target.id);
-       const likeTweet = profildata.find((object) => object.id === parseInt(myId));
-       dispatch(addTweet(likeTweet))
-     
-       //incrémentation de la valeur du like de 1
-        setCount(count+1)
-        if(count==1){
-            setCount(count -1)
-        }
-
-        // mise à jour de la valeur de likeTweet
-
-        // const {setLikeTweet}=useContext(likeTweetContext);
-        // setLikeTweet(likeTweet)
-
+        setMyId(myId=e.target.id);  // récupération de l'id de la publication qui a été liké
+        const likeTweet = profildata.find((object) => object.id === parseInt(myId));
+        if( isLiked && counter < 1){ //counter < 1 empêche la valeur de counter de s'incrémenter à une valeur supérieur à 1 lors du changement des pages
+        setCounter(counter +1)
+        dispatch(addTweet(likeTweet));
+        
+        //incrémentation de la valeur du like de 1
+       dispatch(incrementValue());
+       setIsLiked(false )
+       
+        }else{
+            dispatch(removeTweet(likeTweet)); //on utilise l'action du reducer pour supprimer un tweet doublement liker dans home
+            setCounter(counter -1);
+            setIsLiked(true) //remet la valeur de isLiked à true afin d'éviter une exécution infinie du else
+        }      
     }
-
   function clickAvatar(){
     return getId;
   }     
@@ -85,7 +75,7 @@ function Tweets({user}){
                             </div>
                             <div className="ic">
                                 <div>
-                                    <p>{count}</p>
+                                    <p>{counter}</p>
                                     <img src={users.like} onClick={hundelClick}  id={users.id} alt="" />
                                 </div>
                                 <div>
@@ -96,12 +86,8 @@ function Tweets({user}){
                                     <img src={users.like} alt="" />
                                 </div>
                             </div>
-                            {/* <AllIcons onClick={hundelClick} value={count} click={hundleIncrement} increment={increment} onOpen={hundelOpen } istrue={openComment} close={hundelClose} />  */}
-                            
-                                
-                        </div>
-                        
-                        
+                            {/* <AllIcons onClick={hundelClick} value={count} click={hundleIncrement} increment={increment} onOpen={hundelOpen } istrue={openComment} close={hundelClose} />  */}                         
+                        </div>                       
                     </div>
             ))}
         </div>

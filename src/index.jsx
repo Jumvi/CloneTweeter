@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
 import { createBrowserRouter,RouterProvider} from 'react-router-dom';
 import Home from './pages/home';
 import Explore from './pages/explore';
@@ -12,9 +11,19 @@ import Profil from './pages/profil';
 import More from './pages/more';
 import { Provider } from 'react-redux';
 import store from './feature/store';
+import { createContext,useState } from "react";
 
 
+export let contextCounter = createContext(null);
+function ContextProvider({ children }) {
+  const [counter, setCounter] = useState(0); 
 
+  return (
+    <contextCounter.Provider value={{ counter, setCounter }}> 
+      {children} 
+    </contextCounter.Provider>
+  );
+}
 
 const router = createBrowserRouter([
   {
@@ -58,7 +67,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router}/> 
+      <ContextProvider>
+        <RouterProvider router={router}/>
+      </ContextProvider>  
     </Provider>
     
   </React.StrictMode>
