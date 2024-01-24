@@ -12,6 +12,8 @@ import More from './pages/more';
 import { Provider } from 'react-redux';
 import store from './feature/store';
 import { createContext,useState } from "react";
+import('./style/reset.css');
+import('./style/App.css');
 
 
 export let contextCounter = createContext(null);
