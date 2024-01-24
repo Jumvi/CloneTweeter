@@ -5,17 +5,30 @@ import gif from '../images/gif.png';
 import poll from '../images/stats.png';
 import calendar from '../images/calendar.png';
 import Avatar from './Avatar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import {useDispatch } from 'react-redux';
+import { addInput } from '../feature/tweetSlicer';
  
 
 
 
 
 function TweetEditor(){
-    const [text,setText] = useState("");
+    const [textInput,setTextInput] = useState("");
+    const dispatch = useDispatch()
     
+    const handlChange = (e)=>{
+        setTextInput(e.target.value);
+    }
 
-    
+    const handelClick = ()=>{
+        dispatch(addInput({text:textInput}));
+        setTextInput('');
+        
+         
+    }
+
+  
     return(
         <div className='tweet-editor'>
             <div >
@@ -23,7 +36,7 @@ function TweetEditor(){
             </div>
             <div className='tweet-editor-form'>
                  <div >
-                    <input type="text" className='tweet-editor-input' placeholder='What s happenning ' onChange={(e)=>{e.target.value}}/>
+                    <input type="text" className='tweet-editor-input' placeholder='What s happenning ' onChange={handlChange}/>
                 </div>
                 <div className='tweet-editor-buttons'>
                     <div className='tweet-editor-actions' >
@@ -33,7 +46,7 @@ function TweetEditor(){
                         <img src= {calendar} alt="" />
                     </div>
                     <div>
-                        <button className='button' >Tweet</button>
+                        <button className='button' onClick={handelClick} >Tweet</button>
                     </div>
                 </div>
             

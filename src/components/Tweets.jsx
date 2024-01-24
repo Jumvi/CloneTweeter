@@ -3,7 +3,7 @@ import TweetTile from "./TweetTitle";
 import {  useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { profildata } from "./profildata";
-import {useDispatch } from "react-redux";
+import {useDispatch} from "react-redux";
 import { addTweet } from "../feature/tweetSlicer";
 import {incrementValue} from "../feature/tweetSlicer";
 import {removeTweet} from "../feature/tweetSlicer";
@@ -17,6 +17,7 @@ function Tweets({user}){
     const { counter, setCounter } = useContext(contextCounter);
     let [myId,setMyId]= useState("");
     const dispatch = useDispatch()  ;
+    
 
     // function hundelOpen(){
     //     setOpenComment(true);

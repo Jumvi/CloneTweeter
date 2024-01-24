@@ -1,29 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import TweetEditor from '../components/TweetEditoir';
 import Tweets from '../components/Tweets';
-import tweetimage from '../images/tweet-image.png';
-import phoprofil from '../images/tweet-profile-photo.png';
-import verified from '../images/Verified.png';
 import SideBare from '../components/SideBare';
 import Avatar from '../components/Avatar';
 import profil from '../images/profile-photo.png';
 import UserProfil from '../components/UserProfil';
 import { profildata } from '../components/profildata';
 import Trends from '../components/trends';
-// import { LikeTweetProvider } from '../feature/clickContext';
+import { useSelector } from 'react-redux';
+
 
 
 
 function Home() {
+  const selectTweetInput = useSelector((state)=>state.tweet.slice());
+  const [tweetInput,setTweetImput] = useState(selectTweetInput);
+  const [dataTweet,setDataTweet] = useState(profildata)
+  
   const userProfil ={
     isName :'Judah',
     isPastName:'Mvi',
     isPseudo: '@Jmvi'
   }
  
+   useEffect(()=>{
+    setDataTweet([...profildata,...selectTweetInput]);
+   },[dataTweet])
    
-  
   return (
     <>
     <aside className="left-sidebar bg-black">
@@ -32,6 +36,7 @@ function Home() {
         <Avatar src={profil} />
         <div>
           <UserProfil title={userProfil} />
+          
         </div>
       </div>
 
@@ -40,7 +45,8 @@ function Home() {
       <Header />
       <TweetEditor /> 
       {/* <LikeTweetProvider> */}
-        <Tweets user={profildata}/>  
+      {console.log(dataTweet)}
+        <Tweets user={dataTweet}/>  
       {/* </LikeTweetProvider>     */}
     </main>
     <aside className="right-sidebar bg-black">
