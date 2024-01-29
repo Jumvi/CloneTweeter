@@ -23,7 +23,11 @@ function Tweets({user}){
         setMyId(myId=e.target.id);  // récupération de l'id de la publication qui a été liké
         const likeTweet = profildata.find((object) => object.id === parseInt(myId));
         if( isLiked && counter < 1){ //counter < 1 empêche la valeur de counter de s'incrémenter à une valeur supérieur à 1 lors du changement des pages
-        setCounter(counter +1)
+            if(myId === e.target.id) {
+                setCounter(counter +1)
+            }else{
+                return false;
+            }
         dispatch(addTweet(likeTweet));
         
         //incrémentation de la valeur du like de 1

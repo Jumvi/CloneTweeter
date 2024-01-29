@@ -1,8 +1,5 @@
-import React, { useRef } from 'react';
-import { NavLink, Navigate, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Avatar from './Avatar';
-import Tweets from './Tweets';
-import { profildata } from './profildata';
 
 
 
