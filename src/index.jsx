@@ -18,11 +18,11 @@ import('./style/App.css');
 
 export let contextCounter = createContext(null);
 function ContextProvider({ children }) {
-  const [counter, setCounter] = useState(0); 
+  const [counter, setCounter] = useState(0);
 
   return (
     <contextCounter.Provider value={{ counter, setCounter }}> 
-      {children} 
+        {children} 
     </contextCounter.Provider>
   );
 }

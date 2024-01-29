@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import imgProfil from '../images/profile-photo.png';
 import AvatarProfil from './AvatarProfil';
 import { NavLink } from 'react-router-dom';
+import {useSelector } from 'react-redux';
+
 
 function TheUserProfil({user}) {
+    const contextNumber = useSelector((state)=>state.context);
+    console.log(contextNumber )
+
     return (
         <div>
             <div className='bg-profil'>
@@ -34,7 +39,7 @@ function TheUserProfil({user}) {
             </div>
                         <div className='user-navigation'>
                             <NavLink to="/" >About</NavLink>
-                            <NavLink to="/" >Tweets</NavLink>
+                            <NavLink to="/" >Tweets{contextNumber}</NavLink>
                             <NavLink to="/" >Other</NavLink>
                             <NavLink to="/" >me</NavLink>
                         </div>

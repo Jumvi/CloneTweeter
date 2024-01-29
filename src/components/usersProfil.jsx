@@ -36,7 +36,7 @@ function UsersProfil({data}) {
                     </div>
                         <div className='user-navigation'>
                             <NavLink to="/" >About</NavLink>
-                            <NavLink to="/" >Tweets</NavLink>
+                            <NavLink to="/" >Tweets{}</NavLink>
                             <NavLink to="/" >Other</NavLink>
                             <NavLink to="/" >me</NavLink>
                         </div>

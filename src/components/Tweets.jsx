@@ -11,30 +11,12 @@ import { contextCounter } from "../index.jsx";
 
 
 
-function Tweets({user}){
+function Tweets({user}){ 
 
     const [isLiked, setIsLiked]= useState(true);
     const { counter, setCounter } = useContext(contextCounter);
     let [myId,setMyId]= useState("");
-    const dispatch = useDispatch()  ;
-    
-
-    // function hundelOpen(){
-    //     setOpenComment(true);
-            
-    // }
-
-    // function hundelClose(e){
-    //     e.preventDefault();
-    //     let comment = [];
-    //     comment.push(e.target.value);
-    //     useEffect(()=>{
-    //         setOpenComment(false)
-    //     },[])
-
-    // }
-
-    
+    const dispatch = useDispatch();  
 
     
     function hundelClick(e){
@@ -75,16 +57,16 @@ function Tweets({user}){
                                 <img src={users.imgContent} alt="" />
                             </div>
                             <div className="ic">
-                                <div>
-                                    <p>{counter}</p>
-                                    <img src={users.like} onClick={hundelClick}  id={users.id} alt="" />
+                                <div>   
+                                    <img src={users.comment}  alt="" />
                                 </div>
                                 <div>
-                                    <img src={users.like} alt="" />
+                                <p>{counter}</p>
+                                    <img src={users.like} onClick={hundelClick}  id={users.id} alt="" />
                                 </div><div>
-                                    <img src={users.like} alt="" />
+                                    <img src={users.share} alt="" />
                                 </div><div>
-                                    <img src={users.like} alt="" />
+                                    <img src={users.bookmark} alt="" />
                                 </div>
                             </div>
                             {/* <AllIcons onClick={hundelClick} value={count} click={hundleIncrement} increment={increment} onOpen={hundelOpen } istrue={openComment} close={hundelClose} />  */}                         

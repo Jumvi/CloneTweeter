@@ -6,9 +6,16 @@ import imagetweeter from '../images/imagetweeter.png'
 import cnn from '../images/tweet-profile-photo.png'
 import retweet from '../images/Retweet.png';
 import coeur from '../images/coeur.png';
-import share from '../images/Share.png'
+import share from '../images/Share.png';
+import { FaRegComment } from "react-icons/fa6";
+import { IoShareOutline } from "react-icons/io5";
+import { CiBookmark } from "react-icons/ci";
+import coment from '../images/comment.png';
 
-const date = new Date()
+const date = new Date();
+const comment= share;
+const tinda= share;
+const bookmark = share;
 
  export const profildata=   [{
         text: 'je suis l\'auteur de ce tweet de la france à la rdc je suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdcje suis l\'auteur de ce tweet de la france à la rdc',
@@ -23,9 +30,10 @@ const date = new Date()
         description:'personalité public et chef d\'entreprise',
         following:'150 K following',
         follower:'250 K  followers',
-        like:coeur
-
-
+        like:coeur,
+        comment: comment,
+        share:tinda,
+        bookmark:bookmark
        },
        {
         text: 'je suis l\'auteur de ce tweet',
@@ -38,7 +46,10 @@ const date = new Date()
         isCert: true,
         id:2,
         description:'personalité public et chef d\'entreprise',
-        like:coeur
+        like:coeur,
+        comment: comment,
+        share:tinda,
+        bookmark:bookmark
        },
        {
         text: 'je suis l\'auteur de ce tweet',
@@ -51,7 +62,10 @@ const date = new Date()
         isCert:true,
         id:3,
         description:'personalité public et chef d\'entreprise',
-        like:coeur
+        like:coeur,
+        comment: comment,
+        share:tinda,
+        bookmark:bookmark
        },
        {
         text: 'je suis l\'auteur de ce tweet',
@@ -64,7 +78,10 @@ const date = new Date()
         isCert:false,
         id:4,
         description:'personalité public et chef d\'entreprise',
-        like:coeur
+        like:coeur,
+        comment: comment,
+        share:tinda,
+        bookmark:bookmark
        }];
 
 

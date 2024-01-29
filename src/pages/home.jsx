@@ -14,8 +14,7 @@ import { useSelector } from 'react-redux';
 
 
 function Home() {
-  const selectTweetInput = useSelector((state)=>state.tweet.slice());
-  const [tweetInput,setTweetImput] = useState(selectTweetInput);
+  const selectTweetInput = useSelector((state)=>state.tweet);
   const [dataTweet,setDataTweet] = useState(profildata)
   
   const userProfil ={
@@ -25,8 +24,8 @@ function Home() {
   }
  
    useEffect(()=>{
-    setDataTweet([...profildata,...selectTweetInput]);
-   },[dataTweet])
+    setDataTweet([...selectTweetInput, ...profildata]);
+   },[selectTweetInput])
    
   return (
     <>
@@ -35,8 +34,7 @@ function Home() {
       <div className='my-title w-22 h-22'>
         <Avatar src={profil} />
         <div>
-          <UserProfil title={userProfil} />
-          
+          <UserProfil title={userProfil} />         
         </div>
       </div>
 
@@ -44,10 +42,7 @@ function Home() {
     <main className="timeline bg-black">
       <Header />
       <TweetEditor /> 
-      {/* <LikeTweetProvider> */}
-      {console.log(dataTweet)}
         <Tweets user={dataTweet}/>  
-      {/* </LikeTweetProvider>     */}
     </main>
     <aside className="right-sidebar bg-black">
       <Trends />

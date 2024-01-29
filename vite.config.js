@@ -7,5 +7,10 @@ export default defineConfig({
   plugins: [react(),nodePolyfills()],
   server: {
     host: '0.0.0.0',
-  }
+  },
+  // resolve: {
+  //   alias: {
+  //     'react-file-upload': 'react-file-upload/index.js',
+  //   },
+  // }
 })
