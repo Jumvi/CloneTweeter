@@ -36,9 +36,9 @@ function TweetEditor(){
                 verifiedIcon:verified,
                 imgContent:URL.createObjectURL(imageTweet),//ceci permet de ne recupéré que l'url du file et non toutes les données.
                 isCert:true,
-                comment: <FaRegComment />,
-                share:<IoShareOutline />,
-                bookmark:<CiBookmark />
+                // comment: <FaRegComment />,
+                // share:<IoShareOutline />,
+                // bookmark:<CiBookmark />
     
                 })); 
             //  setNumberOfTWeet(numberOtweet +1)
@@ -51,9 +51,9 @@ function TweetEditor(){
                 pseudo:'@Jmvi',
                 verifiedIcon:verified,
                 isCert:true,
-                comment: <FaRegComment />,
-                share:<IoShareOutline />,
-                bookmark:<CiBookmark />
+                // comment: <FaRegComment />,
+                // share:<IoShareOutline />,
+                // bookmark:<CiBookmark />
     
                 })); 
                 console.log(contextNumber)

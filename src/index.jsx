@@ -30,7 +30,8 @@ function ContextProvider({ children }) {
 const router = createBrowserRouter([
   {
     path:'/',
-    element:<Home />
+    element:<Home />,
+    errorElement: <h2 className='text-red-700 font-bold text-3xl text-center'>Desolé cette page n'existe pas</h2>
   },
   {
     path:'/explore',
