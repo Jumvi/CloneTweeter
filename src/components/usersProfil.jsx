@@ -8,7 +8,7 @@ function UsersProfil({data}) {
         <div className='Users-profils'>
             
                 <div>
-                    <div className='profil-users'>
+                    <div className='profil-users bg-no-repeat h-40 '>
                         <div className='user-layout'>
                             <Avatar id={data.id} src={data.src} />
                             <button className='user-button1'>Edite profil</button>

@@ -319,13 +319,13 @@
     justify-content: space-between;
 } */
 
-.profil-tweet{
+/* .profil-tweet{
     width: 50rem;
     border: 1px solid rgb(102, 101, 100);
-}
+} */
 
 
-.side-button button{
+/* .side-button button{
     color:white;
     background-color: blue;
     width: 8rem;
@@ -333,14 +333,14 @@
     border-radius: 16px;
     margin-left: 5rem;
     
-}
+} */
 
-.bookmaker{
-    display: flex;
-    justify-content: space-between;
-    margin-left: 13rem;
-}
-
+    /* .bookmaker{
+        display: flex;
+        justify-content: space-between;
+        margin-left: 13rem;
+    } */
+/* 
 .explore{
     display: flex;
     justify-content: space-between;
@@ -357,9 +357,9 @@
     display: flex;
     justify-content: space-between;
     margin-left: 13rem;
-}
+} */
 
-.message{
+/* .message{
     display: flex;
     justify-content: space-between;
     margin-left: 13rem;
@@ -369,9 +369,9 @@
     display: flex;
     justify-content: space-between;
     margin-left: 13rem;
-}
+} */
 
-.search{
+/* .search{
     color: white;
     display: flex;
     gap: 20px;
@@ -379,55 +379,55 @@
     border-radius: 16px;
     margin-left: 10px;
     padding: 5px;
-}
+} */
 
-.search input{
+/* .search input{
     background-color: #222527;
     border: none;
     border-radius: 16px;
     color: white;
     border: #222527 ;
    
-}
+} */
 
-.search input::placeholder{
+/* .search input::placeholder{
     color: white;
     font-size: 15px;
-}
+} */
 
-.trends-for-you{
+/* .trends-for-you{
     background-color: #222527;
     margin-top: 5px;
     border-radius: 16px;
     padding: 10px;
     margin-left: 10px;
     
-}
+} */
 
-.trends-affichage{
+/* .trends-affichage{
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
-}
+} */
 
-.trends-affichage h5{
+/* .trends-affichage h5{
     color :white;
 }
 
 .trends-affichage p{
     font-size: 14px;
-}
+} */
 
-.trends-for-you h3{   
+/* .trends-for-you h3{   
     margin-bottom: 10px;
-}
+} */
 
-.trends-for-you a{
+/* .trends-for-you a{
     text-decoration: none;
     margin: 10px;
-}
+} */
 
-.tfyou-title{
+/* .tfyou-title{
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -438,82 +438,80 @@
     justify-content: space-between;
     margin-bottom: 10px;
     
-}
+} */
 
-.layoutFallower{
+/* .layoutFallower{
     display: flex;
     gap: 10px;
-}
+} */
 
-.who-to-follow{
+/* .who-to-follow{
     background-color: #222527;
     border-radius: 16px;
     color: white;
     margin: 10px;
     padding: 10px;
-}
+} */
 
-.who-to-follow a{
+/* .who-to-follow a{
     text-decoration: none;
-}
+} */
 
-.layoutFallower img{
+/* .layoutFallower img{
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
-}
+} */
 
-.layoutFallower {
-}
 
-.fello-title{
+/* .fello-title{
     margin-bottom: 10px;
 
-}
+} */
 
-.whoToFallow .fallow-button{
+/* .whoToFallow .fallow-button{
     color: black;
     border: none;
     border-radius: 16px;
     width: 2rem;
     height: 2rem;
-}
-.follow-me{
+} */
+/* .follow-me{
     width: 4rem;
     height: 2rem;
     border-radius: 16px;
     cursor: pointer;
-}
+} */
 
-.right-sidebar{
+/* .right-sidebar{
     margin-right: 10px;
-}
+} */
 
-.avatar button{
+/* .avatar button{
     background-color: black;
     border: none;
     
-}
+} */
 
-.Users-profils{
+/* .Users-profils{
     color:white;
-}
+} */
 
-.user-title{
+/* .user-title{
     margin-top: 1rem;
-}
+} */
 
-.avatar button{
+/* .avatar button{
     background-color: black;
    border: none;
-}
+} */
 
-.profil-users{
+/* .profil-users{
     background-repeat: no-repeat;
    background-color: greenyellow;
    height: 10rem;  
    border: 2px solid rgb(196, 161, 161);  
-}
+} */
 
 .user-layout{
     display: flex;

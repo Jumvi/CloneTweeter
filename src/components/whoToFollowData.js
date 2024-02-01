@@ -12,12 +12,12 @@ export const followData=[
     },
     {
         src:tweetImage,
-        titleName: 'Rodrigo',
+        titleName: 'Rodrigo Jr',
         pseudo:'@Rojr'
     },
     {
         src:tof,
-        titleName: 'Real',
+        titleName: 'Real Madrid CF',
         pseudo:'@RMacf'
     }
 

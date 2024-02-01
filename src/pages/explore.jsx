@@ -3,7 +3,7 @@ import SideBare from '../components/SideBare';
 
 function Explore(props) {
     return (
-        <div className='explore'>
+        <div className='explore flex justify-between items-center '>
             <SideBare />
             <div>
                 <div>In developement the <h3>Explore page</h3></div>

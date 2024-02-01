@@ -20,7 +20,7 @@ import { userData } from '../Data/theUSerData';
     },[tweetListe])
         return (
 
-            <div className='profil'>
+            <div className='profil flex justify-between'>
                 <SideBare />
                 <div className='profil-tweet'>
                     <TheUserProfil user={userData}/>

@@ -8,7 +8,7 @@ function TrendsForYou({trend}) {
         <div className='tfyou'>
            
             {trend.map((trends,key )=>(
-               <div className='trends-affichage' key={key}>
+               <div className='trends-affichage mb-1 flex justify-between p-1' key={key}>
                     <div>
                         <p className='trend-title'>{trends.title}</p>
                         <h4>{trends.name}</h4>
