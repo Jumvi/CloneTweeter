@@ -1,7 +1,7 @@
 import Avatar from "./Avatar";
 import TweetTile from "./TweetTitle";
 import {  useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { profildata } from "./profildata";
 import {useDispatch} from "react-redux";
 import { addTweet } from "../feature/tweetSlicer";
@@ -44,33 +44,36 @@ function Tweets({user}){
     return getId;
   }     
     return(
-        <div className="tweets">
+        <div className="tweets  ">
             {user.map((users,key)=> (
-                    <div className="tweet" key={key}>
-                        <div className="tweet-avatar"> 
-                           <NavLink to={`profil/${users.id}`} ><Avatar src={users.src}  id={users.id} avatarClick={clickAvatar} /></NavLink> 
+                    <div className="tweet flex  flex-col gap-3 p-8 border-b border-gray-800" key={key}>
+                        <div className="tweet-avatar flex h-12 w-12"> 
+                           <Link to={`profil/${users.id}`} >
+                                <Avatar src={users.src}  id={users.id} avatarClick={clickAvatar} />
+                            </Link>                
                         </div>
-                        <div className="tweet-content">
-                            <div className="tweet-title">
+                        <div className="tweet-title flex flex-start items-start gap-5">
                                 <TweetTile user={users} />
                             </div>
+                        <div className="tweet-content ">
+                            
                             <div className="tweet-text">
                                 <p>{users.text}</p>
                             </div>
                             <div className="tweet-image">
-                                <img src={users.imgContent} alt="" />
+                                <img className="rounded p-4" src={users.imgContent} alt="" />
                             </div>
-                            <div className="ic">
+                            <div className="tweet-actions flex flex-start items-start gap-24 p-4">
                                 <div>   
-                                    <img src={users.comment}  alt="" />
+                                    <img className="hover:cursor-pointer" src={users.comment}  alt="" />
                                 </div>
                                 <div>
                                 <p>{counter}</p>
-                                    <img src={users.like} onClick={hundelClick}  id={users.id} alt="" />
+                                    <img  className=" hover:cursor-pointer active:text-red  " src={users.like} onClick={hundelClick}  id={users.id} alt="" />
                                 </div><div>
-                                    <img src={users.share} alt="" />
+                                    <img className="hover:cursor-pointer" src={users.share} alt="" />
                                 </div><div>
-                                    <img src={users.bookmark} alt="" />
+                                    <img className="hover:cursor-pointer" src={users.bookmark} alt="" />
                                 </div>
                             </div>
                             {/* <AllIcons onClick={hundelClick} value={count} click={hundleIncrement} increment={increment} onOpen={hundelOpen } istrue={openComment} close={hundelClose} />  */}                         

@@ -73,16 +73,16 @@ function TweetEditor(){
        },[handelClick]) 
   
     return(
-        <div className='tweet-editor'>
+        <div className='tweet-editor flex items-start justify-start gap-5 p-4 border-b border-gray-800 '>
             <div >
                 <Avatar src={profil} />
             </div>
-            <div className='tweet-editor-form'>
+            <div className='tweet-editor-form  flex-auto'>
                  <div >
-                    <input type="text" value={textInput} className='tweet-editor-input' placeholder='What s happenning ' onChange={handlChange}/>
+                    <input type="text" value={textInput} className='tweet-editor-input h-10 min-w-full border-0 outline-none text-xl bg-black text-white resize-none px-2 mx-2' placeholder='What s happenning ' onChange={handlChange}/>
                 </div>
-                <div className='tweet-editor-buttons'>
-                    <div className='tweet-editor-actions' >
+                <div className='tweet-editor-buttons flex itemes-center justify-between'>
+                    <div className='tweet-editor-actions flex items-center flex-start' >
                     <label htmlFor="image-input">
                         <input type="file" accept="image/jpeg,image/png" id='image-input'  onChange={handlChange}/>
                         <img src={photo} alt="" />    
@@ -95,7 +95,7 @@ function TweetEditor(){
                         <img src= {calendar} alt="" />
                     </div>
                     <div>
-                        <button className='button' onClick={handelClick} >Tweet</button>
+                        <button className='button bg-indigo-700 capitalize p-2 w-24 rounded border-none' onClick={handelClick} >Tweet</button>
                     </div>
                 </div>
             

@@ -5,80 +5,81 @@
 
 
 
-body{
+/* body{
     background-color: black;
     color: white; 
     margin: 0 auto;
     max-width: 1800px;
-}
+} */
 
-#root{
+/* #root{
     width: 100%;
     display: flex;
     justify-content: space-between;
-}
+} */
 
-.timeline {
+/* .timeline {
     flex: 0 0 800px;
     font-family: 'Inter', sans-serif;
     border-left: 1px solid #2F3336;
     border-right: 1px solid #2F3336;
-}
+} */
 
-.header {
+/* .header {
     padding: 1.5rem 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #2F3336;
-}
+} */
 
-.header a{
+/* .header a{
   color: white;
   text-decoration: none;
-}
+} */
 
-.top-tweets {
+/* .top-tweets {
     width: 1.5rem;
     height: auto;
     background-color: black;
     border: none;
-}
+} */
 
-.page-title {
+/* .page-title {
     font-size: 1.5rem;
     font-weight: bold;
     
-}
+} */
 
-.tweet-editor {
+/* .tweet-editor {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 20px;
     padding:  .3rem 1rem;
     border-bottom: 1px solid #2F3336;
-}
+} */
 
-.avatar {
+/* .avatar {
     flex: 0 0 70px;
-    /*padding: 0 rem;*/
-}
-.avatar button{
-    width: auto;
-}
+    padding: 0 rem;
+} */
 
-.avatar img {
+/* .avatar button{
+    width: auto;
+} */
+
+/* .avatar img {
     max-width: 100%;
     max-height: 100px;
     border-radius: 100%;
-}
+} */
 
-.tweet-editor-form {
+/* .tweet-editor-form {
     flex: auto;
-}
+} */
 
-.tweet-editor-input {
+/* .tweet-editor-input {
     height: 60px;
     width: 100%;
     border: none;
@@ -89,26 +90,26 @@ body{
     resize: none;
     padding: 10px 0 0 0;
     margin: 13px 0;
-}
+} */
 
-.tweet-editor-buttons {
+/* .tweet-editor-buttons {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+} */
 
-.tweet-editor-actions {
+/* .tweet-editor-actions {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /*padding: 0.8rem 0;*/
+    padding: 0.8rem 0;
     gap: 1rem;
-}
-.tweet-editor-actions button {
+} */
+/* .tweet-editor-actions button {
     background-color: transparent;
     border: none;
-}
-.button {
+} */
+/* .button {
     text-transform: capitalize;
     padding: .7rem 1.5rem;
     border: none;
@@ -116,206 +117,207 @@ body{
     background-color: #1D9BF0;
     color: white;
     font-size: 1rem;
-}
-.tweet{
+} */
+/* .tweet{
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     gap: 20px;
     padding: 1.5rem 1rem;
     border-bottom: 1px solid #2F3336;
-}
+} */
 
-.tweet-avatar {
-    /*height: 70px;*/
-    /*width: 70px;*/
+/* .tweet-avatar {
+    height: 70px;
+    width: 70px; 
     flex: 0 0 70px;
-}
+} */
 
-.tweet-avatar img{
+/* .tweet-avatar img{
     max-width: 100%;
     max-height: 100px;
     border-radius: 100%;
-}
-.tweet-content{
+} */
+/* .tweet-content{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 30px;
     width: 100%;
-}
-.tweet-body{
+} */
+/* .tweet-body{
     display: flex;
     flex-direction: column;
     gap: .5rem;
-}
-.tweet-title{
+} */
+/* .tweet-title{
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     gap: 10px;
     font-size: 1rem;
-}
+} */
 
-.tweet-title svg{
+/* .tweet-title svg{
     width: 1.2rem;
     height: auto;
-}
-.tweet-title-author{
+} */
+/* .tweet-title-author{
     font-size: 1rem;
-}
-.tweet-title-details{
+} */
+/* .tweet-title-details{
     color: #6E767D;
-}
-.tweet-text{
+} */
+/* .tweet-text{
     color: #D9D9D9;
     font-size: 1rem;
-}
+} */
 
-.tweet-image{
+/* .tweet-image{
     width: 100%;
     padding:  .3rem 0 0 0;
-}
+} */
 
-.tweet-image img{
+/* .tweet-image img{
     max-width: 100%;
     height: auto;
     border-radius: 50px;
     border-color: #2F3336;
     border-style: solid;
     border-width: 1px;
-}
-.tweet-actions {
+} */
+/* .tweet-actions {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5rem;
+    justify-content: start;
+    align-items: start;
+    gap: 8rem;
     color: grey;
     font-size: 1rem;
-}
+    padding: 1rem;
+} */
 
-.tweet-actions button{
+/* .tweet-actions button{
     border: none;
     background-color: black;
     color: white;
-}
+} */
 
-.tweet-actions svg {
+/* .tweet-actions svg {
     width: 1rem;
     height: auto;
     color: #2F3336;
-}
+} */
 
-.tweet-action{
+/* .tweet-action{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
-}
+} */
 
 
 
-.healt{
+/* .healt{
     display: flex;
     gap: 10px;
-}
-
+} */
+/* 
 .my-button p{
    visibility: hidden;
     background-color: #6E767D;
-}
-.my-button:hover p{
+} */
+/* .my-button:hover p{
     visibility: visible;
     color: white;
     
-}
+} */
 
  /* .healt:hover{
     background-color: #28c5bd;
 } */
-.healt:active{
+/* .healt:active{
     background-color: red;
     color: rgb(148, 130, 130);
-}
+} */
 
-.my-nave li a{
+/* .my-nave li a{
     text-decoration: none;
     color: white;
     line-height: 3;
-}
+} */
 
-.my-nave li img{
+/* .my-nave li img{
     border: none;
-}
+} */
 
-.comment{
+/* .comment{
     display: flex;
     gap: 10px;
-}
+} */
 
-.comment:hover{
+/* .comment:hover{
     background-color: #28c5bd;
 
 }
 
 .comment:active{
     background-color: blue;
-}
+} */
 
-.my-nave li{
+/* .my-nave li{
     list-style: none;
     margin-left: 5em;
     font-weight: normal;
-}
+} */
 
-.navigation{
+/* .navigation{
    margin-left: 10%;
    text-align: justify;
    padding:10px ;
-}
+} */
 
-.sidebare{
+/* .sidebare{
     text-align: center;
     width: 17em;
 
-}
+} */
 
-.top-tweets img{
+/* .top-tweets img{
     width: 1.5rem;
     height: auto;
     background-color: black;
     border: none;
-}
+} */
 
-.top-tweets:hover img {
+/* .top-tweets:hover img {
     cursor: pointer;
     color: #1D9BF0;
-}
+} */
 
-.user-title{
+/* .user-title{
     display: flex;
     gap: 2px;
     align-items: center;
     
-}
+} */
 
-.my-title{
+/* .my-title{
     display: flex;
     gap: 2px;
     margin-left: 6em;
     margin-top: 11em;
-}
+} */
 
  span{
     color: #6E767D;
     size: 20px;
 }
 
-.profil{
+/* .profil{
     display: flex;
     justify-content: space-between;
-}
+} */
 
 .profil-tweet{
     width: 50rem;

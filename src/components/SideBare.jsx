@@ -15,31 +15,31 @@ import { NavLink } from 'react-router-dom';
 function SideBare() {
     return (
         <div className='sidebare'>
-         <nav className='navigation'>
-            <ul className='my-nave'>
-               <li><NavLink to="/">
-                     <button className="top-tweets"> <img src={x} alt="icone tweeter" /> </button>
+         <nav className='navigation flex flex-col items-center'>
+            <ul className='my-nave  leading-[3rem]'>
+               <li className='list-none'><NavLink to="/">
+                     <button className="top-tweets"> <img className='w-6' src={x} alt="icone tweeter" /> </button>
                   </NavLink>
                </li>
-               <li><NavLink to ="/"> <TbHome2 color='white' /> home</NavLink></li>
-               <li><NavLink to ="/explore" color='white'> # Explore</NavLink></li>
-               <li><NavLink to ="/notifications"> <IoIosNotificationsOutline color='white' /> Notifications</NavLink></li>
-               <li><NavLink to ="/message"> <CiMail color='white'/> Message</NavLink></li>
-               <li>
-                  <NavLink to ="/bookmakers"> <CiBookmark color='white' /> Bookmakers</NavLink>
+               <li className='list-none'><NavLink  className="flex decoration-none " to ="/"> <TbHome2 color='white' /> <h6 >home</h6></NavLink></li>
+               <li className='list-none'><NavLink className="flex decoration-none" to ="/explore" color='white'> # Explore</NavLink></li>
+               <li className='list-none'><NavLink className="flex decoration-none" to ="/notifications"> <IoIosNotificationsOutline color='white' /> Notifications</NavLink></li>
+               <li className='list-none'><NavLink className="flex decoration-none" to ="/message"> <CiMail color='white'/> Message</NavLink></li>
+               <li className='list-none'>
+                  <NavLink className="flex decoration-none" to ="/bookmakers"> <CiBookmark color='white' /> Bookmakers</NavLink>
                </li>
-               <li>
-                  <NavLink to ="/lists"> <FaRegListAlt color='white' /> Lists</NavLink>
+               <li className='list-none'>
+                  <NavLink className="flex decoration-none" to ="/lists"> <FaRegListAlt color='white' /> Lists</NavLink>
                </li>
-               <li>
-                  <NavLink to ="/profil"> <FaRegUser color='white' /> Profil</NavLink>
+               <li className='list-none'>
+                  <NavLink className="flex decoration-none" to ="/profil"> <FaRegUser color='white' /> Profil</NavLink>
                </li>                
-               <li>
-                  <NavLink to ="/more">   <CiCircleMore color='white' /> More</NavLink> 
+               <li className='list-none'>
+                  <NavLink className="flex decoration-none" to ="/more">   <CiCircleMore color='white' /> More</NavLink> 
                </li>
             </ul>              
          </nav>   
-             <div className='side-button'>
+             <div className='side-button w-72'>
                 <button >
                     Tweet
                 </button>

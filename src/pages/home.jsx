@@ -31,7 +31,7 @@ function Home() {
     <>
     <aside className="left-sidebar bg-black">
       <SideBare />
-      <div className='my-title w-22 h-22'>
+      <div className='my-title w-22 h-22 flex  ml-16 mt-16'>
         <Avatar src={profil} />
         <div>
           <UserProfil title={userProfil} />         
@@ -39,7 +39,7 @@ function Home() {
       </div>
 
     </aside>
-    <main className="timeline bg-black">
+    <main className="timeline font-sans border-x border-r border-gray-800 bg-black">
       <Header />
       <TweetEditor /> 
         <Tweets user={dataTweet}/>  
