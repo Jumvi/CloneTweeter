@@ -30,49 +30,50 @@ function TweetEditor(){
     } = useForm()
     
     const hundleClick = (data)=>{
+        let updateData = data.myInput;
         const inputObject = {
-            text:data.myInput,
+            text:updateData,
             src:'src/images/profile-photo.png',
             author:"Propriétaire du compte",
             like:coeur,
             pseudo:'@Jmvi',
             verifiedIcon:verified,
-            imgContent:data.myFile,//ceci permet de ne recupéré que l'url du file et non toutes les données.
+            imgContent:data.name[0],//ceci permet de ne recupéré que l'url du file et non toutes les données.
             isCert:true,
             comment: "src/images/coeur.png",
             share: "src/images/coeur.png",
             bookmark: "src/images/coeur.png"
         }
         axios.post(urlApi,inputObject).then((response)=>{
-            setTextInput(" ")
+           updateData = response.data;
         })  
             .catch((error)=>{
-                    console.error('error:',error)
+                    console.error('error:',error);
             })
-        setImageTweet(null)
-       reset()
+        dispatch(incrementContext(contextNumber));
+        reset();
     }
 
     const onSubmit = (data)=>{
         hundleClick(data);
     }
     useEffect(()=>{
-       
+        
        },[]) 
   
     return(
-        <div className='tweet-editor flex items-start justify-between gap-5 p-4 border-b border-gray-800 '>
+        <div className='tweet-editor flex items-start justify-between gap-5 p-4 border-b border-gray-800  '>
             <div >
                 <Avatar src={profil} />
             </div>
             <form action="post" onSubmit={handleSubmit(data =>onSubmit(data))} className='w-full'>
                 <div className='tweet-editor-form  flex flex-col w-full'>
                     <input type="text" className='tweet-editor-input h-10 min-w-full border-0 outline-none text-xl bg-black text-white resize-none px-2 mx-2' placeholder='What s happenning ' {...register('myInput',{required:true})}/>
-                    {errors.myInput && <h4> ce champs est obligatoire</h4>}
+                        {errors.myInput && <h4> ce champs est obligatoire</h4>}
                     <div className='tweet-editor-buttons flex justify-between w-full'>
                         <div className='tweet-editor-actions flex items-center flex-start' >
                             <label htmlFor="image-input">
-                                <input type="file" accept="image/jpeg,image/png,image/*" id='image-input'  {...register('myFile',{required:false})}/>
+                                <input type="file" accept="image/jpeg,image/png,image/*" id='image-input'  {...register("name")}/>
                                 <img src={photo} alt="" />    
                             </label>
                             {/* <label htmlFor="image-input">

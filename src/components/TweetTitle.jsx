@@ -4,7 +4,7 @@
 
 function TweetTile({user}){
     return(
-        <div className="tweet-title flex flex-start items-start gap-1">
+        <div className="tweet-title flex flex-start items-start gap-1 self-center">
             <div className="tweet-title-author">
                 <h5>{user.author}</h5>                        
             </div>

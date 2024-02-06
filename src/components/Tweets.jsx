@@ -46,14 +46,14 @@ function Tweets({user}){
         <div className="tweets  ">
             {user.reverse().map((users,key)=> (
                     <div className="tweet flex  flex-col gap-3 p-8 border-b border-gray-800" key={key}>
-                        <div className="tweet-avatar flex h-12 w-12"> 
+                        <div className="tweet-avatar flex gap-1 h-12 w-2/3"> 
                            <Link to={`profil/${users.id}`} >
                                 <Avatar src={users.src}  id={users.id} avatarClick={clickAvatar} />
-                            </Link>                
+                            </Link>
+                            <TweetTile user={users} />
+               
                         </div>
-                        <div className="tweet-title flex flex-start items-start gap-5">
-                                <TweetTile user={users} />
-                            </div>
+                        
                         <div className="tweet-content ">
                             
                             <div className="tweet-text">

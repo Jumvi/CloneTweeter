@@ -40,10 +40,10 @@ function Home() {
       </div>
 
     </aside>
-    <main className="timeline font-sans border-x border-r border-gray-800 bg-black">
+    <main className="timeline font-sans border-x border-r border-gray-800 bg-black ">
       <Header />
       <TweetEditor /> 
-        <Tweets user={dataTweet}/>  
+      <Tweets user={dataTweet}/>  
     </main>
     <aside className="right-sidebar bg-black">
       <Trends />
