@@ -18,7 +18,7 @@ const serverData = 'http://localhost:3000/tweet';
         }    
     useEffect(()=>{  
         axios.get(serverData).then((response)=>{
-            setTweetList(response.data);
+            setTweetList(response.data.reverse());
         })
           
     },[tweetListe])

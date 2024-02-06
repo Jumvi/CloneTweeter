@@ -13,7 +13,6 @@ import verified from '../images/Verified.png';
 import { incrementContext } from '../feature/tweetSlicer';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import { data } from 'autoprefixer';
 
 
 function TweetEditor(){
@@ -46,7 +45,7 @@ function TweetEditor(){
             bookmark: "src/images/coeur.png"
         }
         axios.post(urlApi,inputObject).then((response)=>{
-            setTextInput(" ")
+           
         })  
             .catch((error)=>{
                     console.error('error:',error)
