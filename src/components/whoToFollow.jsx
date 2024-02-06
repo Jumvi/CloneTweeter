@@ -8,8 +8,8 @@ function WhoToFollow({fallow}) {
             {
                 fallow.map((fallows,key)=>(
                     <div className='whoToFallow flex  justify-between' key={key}>
-                        <div className='layoutFallower flex gap-3'>
-                            <div className='fallow-button rounded-2xl w-8 h-8 border-none '>
+                        <div className='layoutFallower flex gap-2'>
+                            <div className='fallow-button rounded-2xl  h-8 border-none '>
                                 <Avatar src={fallows.src}/>
                             </div>
                             <div className='otherUser '>

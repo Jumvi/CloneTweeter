@@ -14,7 +14,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
 
-function TweetEditor(){
+function TweetEditor({onFetch}){
     const [textInput,setTextInput] = useState("");
     const dispatch = useDispatch();
     const [imageTweet,setImageTweet]=useState(null)
@@ -45,7 +45,7 @@ function TweetEditor(){
             bookmark: "src/images/coeur.png"
         }
         axios.post(urlApi,inputObject).then((response)=>{
-           updateData = response.data;
+            onFetch();
         })  
             .catch((error)=>{
                     console.error('error:',error);

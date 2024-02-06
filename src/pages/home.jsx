@@ -14,7 +14,13 @@ const serverData = 'http://localhost:3000/tweet';
 
 function Home() {
   const selectTweetInput = useSelector((state)=>state.tweet);
-  const [dataTweet,setDataTweet] = useState([])
+  const [dataTweet,setDataTweet] = useState([]);
+
+  const fetchData = ()=>{ 
+    axios.get(serverData).then((response)=>{
+      setDataTweet(response.data.reverse());
+    })
+  }
   
   const userProfil ={
     isName :'judah',
@@ -23,9 +29,7 @@ function Home() {
   }
  
    useEffect(()=>{
-    axios.get(serverData).then((response)=>{
-      setDataTweet(response.data.reverse());
-    })
+    fetchData();
    },[])
    
   return (
@@ -42,7 +46,7 @@ function Home() {
     </aside>
     <main className="timeline font-sans border-x border-r border-gray-800 bg-black ">
       <Header />
-      <TweetEditor /> 
+      <TweetEditor onFetch={fetchData} /> 
       <Tweets user={dataTweet}/>  
     </main>
     <aside className="right-sidebar bg-black">
