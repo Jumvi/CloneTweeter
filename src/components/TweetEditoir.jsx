@@ -7,7 +7,6 @@ import calendar from '../images/calendar.png';
 import Avatar from './Avatar';
 import {  useEffect, useState } from 'react';
 import {useDispatch, useSelector } from 'react-redux';
-import { addInput } from '../feature/tweetSlicer';
 import coeur from '../images/coeur.png';
 import verified from '../images/Verified.png';
 import { incrementContext } from '../feature/tweetSlicer';
@@ -45,7 +44,7 @@ function TweetEditor(){
             bookmark: "src/images/coeur.png"
         }
         axios.post(urlApi,inputObject).then((response)=>{
-           
+            setTextInput(" ")
         })  
             .catch((error)=>{
                     console.error('error:',error)

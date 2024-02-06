@@ -6,7 +6,6 @@ import SideBare from '../components/SideBare';
 import Avatar from '../components/Avatar';
 import profil from '../images/profile-photo.png';
 import UserProfil from '../components/UserProfil';
-import { profildata } from '../components/profildata';
 import Trends from '../components/trends';
 import { useSelector } from 'react-redux';
 import  axios  from 'axios';
