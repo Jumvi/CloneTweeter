@@ -1,0 +1,70 @@
+{
+  "tweet": [
+    {
+      "text": "je suis lauter de ce tweet je suis lauter de ce tweeje suis lauter de ce tweeje suis lauter de ce tweeje suis lauter de ce tweeje suis lauter de ce twee",
+      "src": "src/images/profile-photo.png",
+      "pseudo": "@Jmvi",
+      "author": "Propriétaire du compte",
+      "verifiedIcon": "src/images/Verified.png",
+      "hour": "1h",
+      "imgContent": "src/images/tweet-image.png",
+      "isCert": false,
+      "id": "1",
+      "description": "personalité public et chef d entreprise",
+      "following": "150 K following",
+      "follower": "250 K  followers",
+      "like": "src/images/coeur.png",
+      "comment": "src/images/coeur.png",
+      "share": "src/images/coeur.png",
+      "bookmark": "src/images/coeur.png"
+    },
+    {
+      "text": " je suis lauteur de ce tweet ozkdozakpoakpoa kazjioazjiaje jazheoihjoa iaheiahoie iahjeiojoaen oiaheioa iahjeioae haeaoauheoaean ioaheohaeoa uhaiuehaoie uiaheiohaoie iaheoiahen iaheoiae aioheaoea",
+      "src": "src/images/tweet-image.png",
+      "pseudo": "@cnn1",
+      "author": "Harold NG le casseur",
+      "verifiedIcon": "src/images/Verified.png",
+      "hour": "il ya 1h",
+      "imgContent": "src/images/tweet-image.png",
+      "isCert": true,
+      "id": "2",
+      "description": "ingenieur en batiment et travaux public ",
+      "like": "src/images/coeur.png",
+      "comment": "src/images/coeur.png",
+      "share": "src/images/coeur.png",
+      "bookmark": "src/images/coeur.png"
+    },
+    {
+      "text": " je suis lauteur de ce tweet ozkdozakpoakpoa kazjioazjiaje jazheoihjoa iaheiahoie iahjeiojoaen oiaheioa iahjeioae haeaoauheoaean ioaheohaeoa uhaiuehaoie uiaheiohaoie iaheoiahen iaheoiae aioheaoea",
+      "src": "src/images/tweet-image.png",
+      "pseudo": "@cnn1",
+      "author": "Harold NG le casseur",
+      "verifiedIcon": "src/images/Verified.png",
+      "hour": "il ya 1h",
+      "imgContent": "src/images/tweet-image.png",
+      "isCert": true,
+      "id": "2",
+      "description": "ingenieur en batiment et travaux public",
+      "like": "src/images/coeur.png",
+      "comment": "src/images/coeur.png",
+      "share": "src/images/coeur.png",
+      "bookmark": "src/images/coeur.png"
+    },
+    {
+      "text": " je suis lauteur de ce tweet ozkdozakpoakpoa kazjioazjiaje jazheoihjoa iaheiahoie iahjeiojoaen oiaheioa iahjeioae haeaoauheoaean ioaheohaeoa uhaiuehaoie uiaheiohaoie iaheoiahen iaheoiae aioheaoea ",
+      "src": "src/images/tweet-image.png",
+      "pseudo": "@cnn1",
+      "author": "Harold NG le casseur",
+      "verifiedIcon": "src/images/Verified.png",
+      "hour": "il ya 1h",
+      "imgContent": "src/images/tweet-image.png",
+      "isCert": true,
+      "id": "2",
+      "description": "ingenieur en batiment et travaux public",
+      "like": "src/images/coeur.png",
+      "comment": "src/images/coeur.png",
+      "share": "src/images/coeur.png",
+      "bookmark": "src/images/coeur.png"
+    }
+  ]
+}

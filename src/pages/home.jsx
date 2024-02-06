@@ -9,23 +9,25 @@ import UserProfil from '../components/UserProfil';
 import { profildata } from '../components/profildata';
 import Trends from '../components/trends';
 import { useSelector } from 'react-redux';
+import  axios  from 'axios';
 
-
-
+const serverData = 'http://localhost:3000/tweet';
 
 function Home() {
   const selectTweetInput = useSelector((state)=>state.tweet);
-  const [dataTweet,setDataTweet] = useState(profildata)
+  const [dataTweet,setDataTweet] = useState([])
   
   const userProfil ={
-    isName :'Judah',
+    isName :'judah',
     isPastName:'Mvi',
     isPseudo: '@Jmvi'
   }
  
    useEffect(()=>{
-    setDataTweet([...selectTweetInput, ...profildata]);
-   },[selectTweetInput])
+    axios.get(serverData).then((response)=>{
+      setDataTweet(response.data.reverse());
+    })
+   },[])
    
   return (
     <>

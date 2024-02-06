@@ -6,8 +6,9 @@ import { useSelector } from 'react-redux';
 import { profildata } from '../components/profildata';
 import TheUserProfil from '../components/TheUserProfil';
 import { userData } from '../Data/theUSerData';
+import axios from 'axios';
 
-
+const serverData = 'http://localhost:3000/tweet';
     function Profil() {
         const tweetData = useSelector((state)=>state.tweet.slice());
         const [tweetListe,setTweetList] = useState(tweetData);
@@ -16,7 +17,10 @@ import { userData } from '../Data/theUSerData';
             return   -(a.timestamp - b.timestamp);
         }    
     useEffect(()=>{  
-        setTweetList((prevTweetListe) => prevTweetListe.sort(putOrderOnTweet));    
+        axios.get(serverData).then((response)=>{
+            setTweetList(response.data);
+        })
+          
     },[tweetListe])
         return (
 
@@ -25,7 +29,6 @@ import { userData } from '../Data/theUSerData';
                 <div className='profil-tweet'>
                     <TheUserProfil user={userData}/>
                     <Tweets user={tweetListe}/> 
-                    <Tweets user={profildata}/> 
                 </div>
                 
                 <Trends />

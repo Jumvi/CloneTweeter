@@ -10,7 +10,6 @@ import {removeTweet} from "../feature/tweetSlicer";
 import { contextCounter } from "../index.jsx";
 
 
-
 function Tweets({user}){ 
 
     const [isLiked, setIsLiked]= useState(true);
@@ -45,7 +44,7 @@ function Tweets({user}){
   }     
     return(
         <div className="tweets  ">
-            {user.map((users,key)=> (
+            {user.reverse().map((users,key)=> (
                     <div className="tweet flex  flex-col gap-3 p-8 border-b border-gray-800" key={key}>
                         <div className="tweet-avatar flex h-12 w-12"> 
                            <Link to={`profil/${users.id}`} >

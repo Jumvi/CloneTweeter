@@ -12,76 +12,66 @@ import coeur from '../images/coeur.png';
 import verified from '../images/Verified.png';
 import { incrementContext } from '../feature/tweetSlicer';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { data } from 'autoprefixer';
+
 
 function TweetEditor(){
-    let [textInput,setTextInput] = useState("");
+    const [textInput,setTextInput] = useState("");
     const dispatch = useDispatch();
-    let [imageTweet,setImageTweet]=useState(null)
+    const [imageTweet,setImageTweet]=useState(null)
     const contextNumber = useSelector((state)=>state.context);
+
+    const urlApi = 'http://localhost:3000/tweet';
 
     const {
         register,
         handleSubmit,
         formState:{errors},
+        reset
     } = useForm()
     
-    const handelClick = (data)=>{
-        setImageTweet(imageTweet =data.myFile);
-        setTextInput(textInput= data.myInput);
-        if(imageTweet){
-            dispatch(addInput({text:textInput,
-                src:profil,
-                author:"Propriétaire du compte",
-                like:coeur,
-                pseudo:'@Jmvi',
-                verifiedIcon:verified,
-                imgContent:data.myFile,//ceci permet de ne recupéré que l'url du file et non toutes les données.
-                isCert:true,
-                // comment: <FaRegComment />,
-                // share:<IoShareOutline />,
-                // bookmark:<CiBookmark />
-    
-                })); 
-             dispatch(incrementContext(contextNumber +1))
-        }else if (textInput ){
-            dispatch(addInput({text:textInput,
-                src:profil,
-                author:"Propriétaire du compte",
-                like:coeur,
-                pseudo:'@Jmvi',
-                verifiedIcon:verified,
-                isCert:true,
-                // comment: <FaRegComment />,
-                // share:<IoShareOutline />,
-                // bookmark:<CiBookmark />
-    
-                })); 
-                console.log(contextNumber)
-                dispatch(incrementContext(contextNumber +1))
-                console.log(`modi ${contextNumber +1}`);
-        }   
-        setTextInput("");
+    const hundleClick = (data)=>{
+        const inputObject = {
+            text:data.myInput,
+            src:'src/images/profile-photo.png',
+            author:"Propriétaire du compte",
+            like:coeur,
+            pseudo:'@Jmvi',
+            verifiedIcon:verified,
+            imgContent:data.myFile,//ceci permet de ne recupéré que l'url du file et non toutes les données.
+            isCert:true,
+            comment: "src/images/coeur.png",
+            share: "src/images/coeur.png",
+            bookmark: "src/images/coeur.png"
+        }
+        axios.post(urlApi,inputObject).then((response)=>{
+            setTextInput(" ")
+        })  
+            .catch((error)=>{
+                    console.error('error:',error)
+            })
         setImageTweet(null)
-       
+       reset()
     }
 
     const onSubmit = (data)=>{
-        handelClick(data);
+        hundleClick(data);
     }
     useEffect(()=>{
-        
-       },[handelClick]) 
+       
+       },[]) 
   
     return(
-        <div className='tweet-editor flex items-start justify-start gap-5 p-4 border-b border-gray-800 '>
+        <div className='tweet-editor flex items-start justify-between gap-5 p-4 border-b border-gray-800 '>
             <div >
                 <Avatar src={profil} />
             </div>
-            <form action="post" onSubmit={handleSubmit(data =>onSubmit(data))}>
-                <div className='tweet-editor-form  flex-auto'>
+            <form action="post" onSubmit={handleSubmit(data =>onSubmit(data))} className='w-full'>
+                <div className='tweet-editor-form  flex flex-col w-full'>
                     <input type="text" className='tweet-editor-input h-10 min-w-full border-0 outline-none text-xl bg-black text-white resize-none px-2 mx-2' placeholder='What s happenning ' {...register('myInput',{required:true})}/>
                     {errors.myInput && <h4> ce champs est obligatoire</h4>}
-                    <div className='tweet-editor-buttons flex itemes-center justify-between'>
+                    <div className='tweet-editor-buttons flex justify-between w-full'>
                         <div className='tweet-editor-actions flex items-center flex-start' >
                             <label htmlFor="image-input">
                                 <input type="file" accept="image/jpeg,image/png,image/*" id='image-input'  {...register('myFile',{required:false})}/>
