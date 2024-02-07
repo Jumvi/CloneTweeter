@@ -38,7 +38,7 @@ function TweetEditor({onFetch}){
             like:coeur,
             pseudo:'@Jmvi',
             verifiedIcon:verified,
-            imgContent:data.name[0],//ceci permet de ne recupéré que l'url du file et non toutes les données.
+            imgContent:URL.createObjectURL(data.picture[0]),//ceci permet de ne recupéré que l'url du file et non toutes les données.
             isCert:true,
             comment: "src/images/coeur.png",
             share: "src/images/coeur.png",
@@ -73,7 +73,7 @@ function TweetEditor({onFetch}){
                     <div className='tweet-editor-buttons flex justify-between w-full'>
                         <div className='tweet-editor-actions flex items-center flex-start' >
                             <label htmlFor="image-input">
-                                <input type="file" accept="image/jpeg,image/png,image/*" id='image-input'  {...register("name")}/>
+                                <input type="file"  id='image-input'  {...register("picture")}/>
                                 <img src={photo} alt="" />    
                             </label>
                             {/* <label htmlFor="image-input">
