@@ -73,7 +73,7 @@ function TweetEditor({onFetch}){
                     <div className='tweet-editor-buttons flex justify-between w-full'>
                         <div className='tweet-editor-actions flex items-center flex-start' >
                             <label htmlFor="image-input">
-                                <input type="file"  id='image-input'  {...register("picture")}/>
+                                <input type="file"  id='image-input'  {...register("picture")} className='w-[500px]'/>
                                 <img src={photo} alt="" />    
                             </label>
                             {/* <label htmlFor="image-input">

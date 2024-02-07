@@ -59,8 +59,8 @@ function Tweets({user}){
                             <div className="tweet-text">
                                 <p>{users.text}</p>
                             </div>
-                            <div className="tweet-image">
-                                <img className="rounded p-4" src={users.imgContent} alt="" />
+                            <div className="tweet-image ">
+                                <img className="rounded p-4 w-full object-fill" src={users.imgContent} alt="" />
                             </div>
                             <div className="tweet-actions flex flex-start items-start gap-24 p-4">
                                 <div>   
