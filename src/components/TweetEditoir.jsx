@@ -51,7 +51,7 @@ function TweetEditor({onFetch}){
                 comment: "src/images/coeur.png",
                 share: "src/images/coeur.png",
                 bookmark: "src/images/coeur.png",
-                couter:0
+                counterLike:0
             }
         
         axios.post(urlApi,inputObject).then((response)=>{

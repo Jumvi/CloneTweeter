@@ -27,7 +27,7 @@ function Home() {
       }else{
         //ceci permet  à comparer un id avec celui de la publication liker mais aussi d'increéménter le counter des likes
         const upLoadData = myData.find((tweet)=> tweet.id === getId.payload);
-        upLoadData.couter++;
+        upLoadData.counterLike++;
         setDataTweet([...myData.reverse(),...selectTweetInput]);
       }
      

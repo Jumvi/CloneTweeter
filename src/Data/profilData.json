@@ -17,7 +17,7 @@
       "comment": "src/images/coeur.png",
       "share": "src/images/coeur.png",
       "bookmark": "src/images/coeur.png",
-      "couter": 0
+      "counterLike": 0
     },
     {
       "text": " je suis lauteur de ce tweet ozkdozakpoakpoa kazjioazjiaje jazheoihjoa iaheiahoie iahjeiojoaen oiaheioa iahjeioae haeaoauheoaean ioaheohaeoa uhaiuehaoie uiaheiohaoie iaheoiahen iaheoiae aioheaoea",
@@ -34,7 +34,7 @@
       "comment": "src/images/coeur.png",
       "share": "src/images/coeur.png",
       "bookmark": "src/images/coeur.png",
-      "couter": 0
+      "counterLike": 0
     },
     {
       "text": " je suis lauteur de ce tweet ozkdozakpoakpoa kazjioazjiaje jazheoihjoa iaheiahoie iahjeiojoaen oiaheioa iahjeioae haeaoauheoaean ioaheohaeoa uhaiuehaoie uiaheiohaoie iaheoiahen iaheoiae aioheaoea",
@@ -51,7 +51,7 @@
       "comment": "src/images/coeur.png",
       "share": "src/images/coeur.png",
       "bookmark": "src/images/coeur.png",
-      "couter": 0
+      "counterLike": 0
     },
     {
       "text": " je suis lauteur de ce tweet ozkdozakpoakpoa kazjioazjiaje jazheoihjoa iaheiahoie iahjeiojoaen oiaheioa iahjeioae haeaoauheoaean ioaheohaeoa uhaiuehaoie uiaheiohaoie iaheoiahen iaheoiae aioheaoea ",
@@ -68,41 +68,11 @@
       "comment": "src/images/coeur.png",
       "share": "src/images/coeur.png",
       "bookmark": "src/images/coeur.png",
-      "couter": 0
+      "counterLike": 0
     },
     {
-      "id": "b53c",
-      "text": "kazzakazkzk",
-      "src": "src/images/profile-photo.png",
-      "author": "Propriétaire du compte",
-      "like": "/src/images/coeur.png",
-      "pseudo": "@Jmvi",
-      "verifiedIcon": "/src/images/Verified.png",
-      "imgContent": "blob:http://localhost:5173/a770726f-be40-4cd9-8758-f8b87dc9378e",
-      "isCert": true,
-      "comment": "src/images/coeur.png",
-      "share": "src/images/coeur.png",
-      "bookmark": "src/images/coeur.png",
-      "couter": 0
-    },
-    {
-      "id": "1bba",
-      "text": "benie bata",
-      "src": "src/images/profile-photo.png",
-      "author": "Propriétaire du compte",
-      "like": "/src/images/coeur.png",
-      "pseudo": "@Jmvi",
-      "imgContent": "blob:http://localhost:5173/09fafeb7-3b52-428e-95cb-f8a2fa03ba57",
-      "verifiedIcon": "/src/images/Verified.png",
-      "isCert": true,
-      "comment": "src/images/coeur.png",
-      "share": "src/images/coeur.png",
-      "bookmark": "src/images/coeur.png",
-      "couter": 0
-    },
-    {
-      "id": "dd70",
-      "text": "jldjqqjqljqdj",
+      "id": "bf44",
+      "text": "benie bata est une informaticienne ",
       "src": "src/images/profile-photo.png",
       "author": "Propriétaire du compte",
       "like": "/src/images/coeur.png",
@@ -113,67 +83,7 @@
       "comment": "src/images/coeur.png",
       "share": "src/images/coeur.png",
       "bookmark": "src/images/coeur.png",
-      "couter": 0
-    },
-    {
-      "id": "2401",
-      "text": "okadjkiffa",
-      "src": "src/images/profile-photo.png",
-      "author": "Propriétaire du compte",
-      "like": "/src/images/coeur.png",
-      "pseudo": "@Jmvi",
-      "verifiedIcon": "/src/images/Verified.png",
-      "imgContent": "blob:http://localhost:5173/183ceea5-a452-494c-98aa-49b36d8ac3cd",
-      "isCert": true,
-      "comment": "src/images/coeur.png",
-      "share": "src/images/coeur.png",
-      "bookmark": "src/images/coeur.png",
-      "couter": 0
-    },
-    {
-      "id": "3d9a",
-      "text": "benie bata tshifwame",
-      "src": "src/images/profile-photo.png",
-      "author": "Propriétaire du compte",
-      "like": "/src/images/coeur.png",
-      "pseudo": "@Jmvi",
-      "verifiedIcon": "/src/images/Verified.png",
-      "imgContent": "blob:http://localhost:5173/541a76a3-3ca6-45cd-8eba-e396d3072311",
-      "isCert": true,
-      "comment": "src/images/coeur.png",
-      "share": "src/images/coeur.png",
-      "bookmark": "src/images/coeur.png",
-      "couter": 0
-    },
-    {
-      "id": "227c",
-      "text": "ozporjeofje",
-      "src": "src/images/profile-photo.png",
-      "author": "Propriétaire du compte",
-      "like": "/src/images/coeur.png",
-      "pseudo": "@Jmvi",
-      "verifiedIcon": "/src/images/Verified.png",
-      "imgContent": "",
-      "isCert": true,
-      "comment": "src/images/coeur.png",
-      "share": "src/images/coeur.png",
-      "bookmark": "src/images/coeur.png",
-      "couter": 0
-    },
-    {
-      "id": "d55e",
-      "text": "",
-      "src": "src/images/profile-photo.png",
-      "author": "Propriétaire du compte",
-      "like": "/src/images/coeur.png",
-      "pseudo": "@Jmvi",
-      "verifiedIcon": "/src/images/Verified.png",
-      "imgContent": "",
-      "isCert": true,
-      "comment": "src/images/coeur.png",
-      "share": "src/images/coeur.png",
-      "bookmark": "src/images/coeur.png",
-      "couter": 0
+      "counterLike": 0
     }
   ]
 }

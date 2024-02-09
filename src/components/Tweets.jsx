@@ -88,7 +88,7 @@ function Tweets({user,OngetId}){
                                     <img className="hover:cursor-pointer" src={users.comment}  alt="" />
                                 </div>
                                 <div>
-                                <p>{users.couter}</p>
+                                <p>{users.counterLike}</p>
                                     <img  className=" hover:cursor-pointer active:text-red  " src={users.like} onClick={hundelClick}  id={users.id} alt="" />
                                 </div><div>
                                     <img className="hover:cursor-pointer" src={users.share} alt="" />
