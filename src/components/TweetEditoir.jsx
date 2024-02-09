@@ -15,10 +15,10 @@ import axios from 'axios';
 
 
 function TweetEditor({onFetch}){
-    const [textInput,setTextInput] = useState("");
     const dispatch = useDispatch();
     const [imageTweet,setImageTweet]=useState(null)
     const contextNumber = useSelector((state)=>state.context);
+    let inputObject= {};
 
     const urlApi = 'http://localhost:3000/tweet';
 
@@ -31,19 +31,29 @@ function TweetEditor({onFetch}){
     
     const hundleClick = (data)=>{
         let updateData = data.myInput;
-        const inputObject = {
-            text:updateData,
-            src:'src/images/profile-photo.png',
-            author:"Propriétaire du compte",
-            like:coeur,
-            pseudo:'@Jmvi',
-            verifiedIcon:verified,
-            imgContent:URL.createObjectURL(data.picture[0]),//ceci permet de ne recupéré que l'url du file et non toutes les données.
-            isCert:true,
-            comment: "src/images/coeur.png",
-            share: "src/images/coeur.png",
-            bookmark: "src/images/coeur.png"
+        let urlImage ="";
+
+        if(data.picture[0]){
+            urlImage  = URL.createObjectURL(data.picture[0])
         }
+            
+         setImageTweet("");
+         console.log(imageTweet);
+             inputObject = {
+                text:updateData,
+                src:'src/images/profile-photo.png',
+                author:"Propriétaire du compte",
+                like:coeur,
+                pseudo:'@Jmvi',
+                verifiedIcon:verified,
+                imgContent:urlImage,//ceci permet de ne recupéré que l'url du file et non toutes les données.
+                isCert:true,
+                comment: "src/images/coeur.png",
+                share: "src/images/coeur.png",
+                bookmark: "src/images/coeur.png",
+                couter:0
+            }
+        
         axios.post(urlApi,inputObject).then((response)=>{
             onFetch();
         })  
@@ -76,9 +86,9 @@ function TweetEditor({onFetch}){
                                 <input type="file"  id='image-input'  {...register("picture")} className='w-[500px]'/>
                                 <img src={photo} alt="" />    
                             </label>
-                            {/* <label htmlFor="image-input">
+                            <label htmlFor="gif-input">
                                  <img src={gif} alt="" />
-                                </label> */}
+                                </label>
                         
                             <img src= {poll} alt="" />
                             <img src= {calendar} alt="" />

@@ -9,7 +9,7 @@ import WhoToFollow from './whoToFollow';
 
 function Trends() {
     return (
-        <div className='trends m-2'>
+        <aside className='trends m-2 w-full'>
             <div className='search flex gap-5 bg-gray-900 rounded-2xl ml-2 p-1'>
                <div className='search-icone'><CiSearch /></div> <input className='bg-transparent border-none border-transparent rounded-2xl ' type="text" placeholder='Search Tweeter' />
             </div>
@@ -29,7 +29,7 @@ function Trends() {
                 </div>
                
             </div>
-        </div>
+        </aside>
     );
 }
 

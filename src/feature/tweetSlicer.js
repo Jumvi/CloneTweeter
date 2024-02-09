@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     tweet:[],
+    dataId:"",
     value:0,
     context : 0
 };
@@ -35,12 +36,16 @@ const tweetSlice = createSlice({
                 isCert:action.payload.isCert,
                 comment:action.payload.comment,
                 share:action.payload.share,
-                bookmark:action.payload.bookmark
+                bookmark:action.payload.bookmark,
+                couter:action.payload.couter
             })
         },
+        getId:(state,dataId)=>{
+            state.dataId = dataId;
+        }
             
         },
 });
 
-export const {addTweet,incrementValue,incrementContext,removeTweet, addInput}=tweetSlice.actions;
+export const {addTweet,incrementValue,incrementContext,removeTweet, addInput,getId}=tweetSlice.actions;
 export default tweetSlice.reducer  

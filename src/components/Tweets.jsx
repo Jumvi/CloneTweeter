@@ -1,6 +1,6 @@
 import Avatar from "./Avatar";
 import TweetTile from "./TweetTitle";
-import {  useContext, useState } from "react";
+import {  useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { profildata } from "./profildata";
 import {useDispatch} from "react-redux";
@@ -8,25 +8,43 @@ import { addTweet } from "../feature/tweetSlicer";
 import {incrementValue} from "../feature/tweetSlicer";
 import {removeTweet} from "../feature/tweetSlicer";
 import { contextCounter } from "../index.jsx";
+import axios from "axios";
+import { getId } from "../feature/tweetSlicer";
 
+const apiData = 'http://localhost:3000/tweet/';
 
-function Tweets({user}){ 
+function Tweets({user,OngetId}){ 
 
+    const [userData, setUserData] = useState();
     const [isLiked, setIsLiked]= useState(true);
     const { counter, setCounter } = useContext(contextCounter);
     let [myId,setMyId]= useState("");
     const dispatch = useDispatch();  
+ 
+    useEffect(() => {
+        (async ()=>{
+            const response = await axios.get(apiData).then((response)=>{
+                setUserData(response.data)
+            })
+       
+        })();
+       
+    }, [])
 
-    
     function hundelClick(e){
-        setMyId(myId=e.target.id);  // récupération de l'id de la publication qui a été liké
-        const likeTweet = profildata.find((object) => object.id === parseInt(myId));
+        setMyId(myId=e.target.id); 
+         // récupération de l'id de la publication qui a été liké
+        const likeTweet = userData.find((object) => object.id === myId);
+        console.log(myId)
+        dispatch(getId(myId));
         if( isLiked && counter < 1){ //counter < 1 empêche la valeur de counter de s'incrémenter à une valeur supérieur à 1 lors du changement des pages
             if(myId === e.target.id) {
-                setCounter(counter +1)
+                // setCounter(counter +1);
+                console.log(` moi ${likeTweet}`, likeTweet  );
             }else{
                 return false;
             }
+        
         dispatch(addTweet(likeTweet));
         
         //incrémentation de la valeur du like de 1
@@ -41,9 +59,12 @@ function Tweets({user}){
     }
   function clickAvatar(){
     return getId;
-  }     
+  } 
+  
+  
+  
     return(
-        <div className="tweets  ">
+        <div className="tweets w-full border-y border-gray-800 bg-black ">
             {user.reverse().map((users,key)=> (
                     <div className="tweet flex  flex-col gap-3 p-8 border-b border-gray-800" key={key}>
                         <div className="tweet-avatar flex gap-1 h-12 w-2/3"> 
@@ -67,7 +88,7 @@ function Tweets({user}){
                                     <img className="hover:cursor-pointer" src={users.comment}  alt="" />
                                 </div>
                                 <div>
-                                <p>{counter}</p>
+                                <p>{users.couter}</p>
                                     <img  className=" hover:cursor-pointer active:text-red  " src={users.like} onClick={hundelClick}  id={users.id} alt="" />
                                 </div><div>
                                     <img className="hover:cursor-pointer" src={users.share} alt="" />

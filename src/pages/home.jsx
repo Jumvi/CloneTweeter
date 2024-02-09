@@ -13,12 +13,25 @@ import  axios  from 'axios';
 const serverData = 'http://localhost:3000/tweet';
 
 function Home() {
+  const getId = useSelector((state)=>state.dataId); // récupération de l'Id de la publication liker par le click
   const selectTweetInput = useSelector((state)=>state.tweet);
   const [dataTweet,setDataTweet] = useState([]);
 
+  
   const fetchData = ()=>{ 
     axios.get(serverData).then((response)=>{
-      setDataTweet(response.data.reverse());
+      const myData = response.data;
+      if (getId ===""){ // ceci permet à éviter une erreur lorsque l'on a pas encore cliquer sur le j'aime d'une application
+      setDataTweet([...myData.reverse(),...selectTweetInput]);
+
+      }else{
+        //ceci permet  à comparer un id avec celui de la publication liker mais aussi d'increéménter le counter des likes
+        const upLoadData = myData.find((tweet)=> tweet.id === getId.payload);
+        upLoadData.couter++;
+        setDataTweet([...myData.reverse(),...selectTweetInput]);
+      }
+     
+      
     })
   }
   
@@ -29,7 +42,8 @@ function Home() {
   }
  
    useEffect(()=>{
-    fetchData();
+    fetchData();  // cette fonction permet la syncronisation des post et get afin que celà se passe sans attendre le rechargement de la page.
+
    },[])
    
   return (
@@ -44,7 +58,7 @@ function Home() {
       </div>
 
     </aside>
-    <main className="timeline font-sans border-x border-r border-gray-800 bg-black ">
+    <main className="timeline font-sans border-x border-y border-gray-800 bg-black ">
       <Header />
       <TweetEditor onFetch={fetchData} /> 
       <Tweets user={dataTweet}/>  

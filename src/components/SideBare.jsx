@@ -14,7 +14,7 @@ import { NavLink } from 'react-router-dom';
 
 function SideBare() {
     return (
-        <div className='sidebare flex flex-col items-center w-64 '>
+        <aside className='sidebare flex flex-col items-center w-full '>
          <nav className='navigation flex flex-col items-center'>
             <ul className='my-nave  leading-[3rem] '>
                <li className='list-none hover:list-none text-white border-none'><NavLink to="/">
@@ -50,7 +50,7 @@ function SideBare() {
                 </button>
              </div>
 
-        </div>
+        </aside>
     );
 }
 
