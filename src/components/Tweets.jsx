@@ -2,25 +2,34 @@ import Avatar from "./Avatar";
 import TweetTile from "./TweetTitle";
 import {  useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { profildata } from "./profildata";
 import {useDispatch} from "react-redux";
 import { addTweet } from "../feature/tweetSlicer";
-import {incrementValue} from "../feature/tweetSlicer";
 import {removeTweet} from "../feature/tweetSlicer";
 import { contextCounter } from "../index.jsx";
 import axios from "axios";
 import { getId } from "../feature/tweetSlicer";
+import { addArray } from '../feature/tweetSlicer';
 
-const apiData = 'http://localhost:3000/tweet/';
+const urlApi = 'http://localhost:3000/tweet/';
+const apiData = 'http://localhost:3000/tweet';
 
 function Tweets({user,OngetId}){ 
 
     const [userData, setUserData] = useState();
-    const [isLiked, setIsLiked]= useState(true);
+    let [updatedTweet,setUpdatedTweet] =useState({});
+    let [isLiked,setIsLiked] = useState(true);
     const { counter, setCounter } = useContext(contextCounter);
     let [myId,setMyId]= useState("");
     const dispatch = useDispatch();  
+
+    const fetchData = ()=>{ 
+        axios.get(apiData).then((response)=>{
+          const myData = response.data;
+          dispatch(addArray(myData));
+        })
+      }
  
+
     useEffect(() => {
         (async ()=>{
             const response = await axios.get(apiData).then((response)=>{
@@ -34,28 +43,28 @@ function Tweets({user,OngetId}){
     function hundelClick(e){
         setMyId(myId=e.target.id); 
          // récupération de l'id de la publication qui a été liké
-        const likeTweet = userData.find((object) => object.id === myId);
-        console.log(myId)
+        let likeTweet = userData.find((object) => object.id === myId);
         dispatch(getId(myId));
-        if( isLiked && counter < 1){ //counter < 1 empêche la valeur de counter de s'incrémenter à une valeur supérieur à 1 lors du changement des pages
-            if(myId === e.target.id) {
-                // setCounter(counter +1);
-                console.log(` moi ${likeTweet}`, likeTweet  );
-            }else{
-                return false;
+        if( likeTweet ){
+            if(myId === e.target.id && isLiked && likeTweet.counterLike  <1) {
+               setUpdatedTweet( { ...likeTweet, counterLike: likeTweet.counterLike++ }); //création d'un nouvel objet qui permet de modifier la valeur de counterLike directement car cette valeur est imuable dans likeTweet et ne peut être diréctement modifiée
+               setIsLiked(false)
+               dispatch(addTweet(updatedTweet));
+            } else{
+                setUpdatedTweet( { ...likeTweet, counterLike: likeTweet.counterLike-- }); 
+                setIsLiked(true);
+                dispatch(removeTweet(updatedTweet)); //on utilise l'action du reducer pour supprimer un tweet doublement liker dans home
             }
-        
-        dispatch(addTweet(likeTweet));
-        
-        //incrémentation de la valeur du like de 1
-       dispatch(incrementValue());
-       setIsLiked(false )
+
+            axios.put(urlApi + myId,updatedTweet).then((response)=>{
+                fetchData();
+            })  
+                .catch((error)=>{
+                        console.error('error:',error);
+                })    
        
-        }else{
-            dispatch(removeTweet(likeTweet)); //on utilise l'action du reducer pour supprimer un tweet doublement liker dans home
-            setCounter(counter -1);
-            setIsLiked(true) //remet la valeur de isLiked à true afin d'éviter une exécution infinie du else
-        }      
+        }
+             
     }
   function clickAvatar(){
     return getId;
@@ -65,7 +74,7 @@ function Tweets({user,OngetId}){
   
     return(
         <div className="tweets w-full border-y border-gray-800 bg-black ">
-            {user.reverse().map((users,key)=> (
+            {user.map((users,key)=> (
                     <div className="tweet flex  flex-col gap-3 p-8 border-b border-gray-800" key={key}>
                         <div className="tweet-avatar flex gap-1 h-12 w-2/3"> 
                            <Link to={`profil/${users.id}`} >
