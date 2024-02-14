@@ -1,9 +1,13 @@
 import { NavLink } from 'react-router-dom';
 import Avatar from './Avatar';
+import { incrementContext } from '../feature/tweetSlicer';
+import { useSelector } from 'react-redux';
+
 
 
 
 function UsersProfil({data}) {
+    incrementContext = useSelector((state)=>state.context)
     return (
         <div className='Users-profils'>
             
@@ -33,7 +37,7 @@ function UsersProfil({data}) {
                     </div>
                         <div className='user-navigation'>
                             <NavLink to="/" >About</NavLink>
-                            <NavLink to="/" >Tweets{}</NavLink>
+                            <NavLink to="/" >Tweets{incrementContext}</NavLink>
                             <NavLink to="/" >Other</NavLink>
                             <NavLink to="/" >me</NavLink>
                         </div>

@@ -7,7 +7,6 @@ import {useSelector } from 'react-redux';
 
 function TheUserProfil({user}) {
     const contextNumber = useSelector((state)=>state.context);
-    console.log(contextNumber )
 
     return (
         <div>

@@ -5,7 +5,8 @@ const initialState = {
     tweet:[],
     dataId:"",
     value:0,
-    context : 0
+    context : 0,
+    tweetArray:[]
 };
 
 const tweetSlice = createSlice({
@@ -15,9 +16,6 @@ const tweetSlice = createSlice({
         addTweet:(state,action)=>{
                 state.tweet.unshift(action.payload);
             },
-        incrementValue:(state)=>{
-            state.value +=1;
-        },
         incrementContext :(state)=>{
             state.context +=1;
         },
@@ -42,10 +40,14 @@ const tweetSlice = createSlice({
         },
         getId:(state,dataId)=>{
             state.dataId = dataId;
+        },
+        addArray:(state,action)=>{
+            state.tweetArray = action.payload.reverse();
         }
+
             
         },
 });
 
-export const {addTweet,incrementValue,incrementContext,removeTweet, addInput,getId}=tweetSlice.actions;
+export const {addTweet,incrementContext,removeTweet, addInput,getId,addArray}=tweetSlice.actions;
 export default tweetSlice.reducer  

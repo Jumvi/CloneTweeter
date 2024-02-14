@@ -12,17 +12,13 @@ const serverData = 'http://localhost:3000/tweet';
         const tweetData = useSelector((state)=>state.tweet.slice());
         const [tweetListe,setTweetList] = useState(tweetData);
         const [fetchData,setFetchData] =useState([]);
-           
+
     useEffect(()=>{  
         axios.get(serverData).then((response)=>{
             setFetchData([...tweetListe,...response.data.reverse()]);
-        })
-          
+        })      
     },[tweetListe])
-
-    console.log(tweetListe);
         return (
-
             <div className='profil flex justify-between'>
                 <SideBare />
                 <div className='profil-tweet'>

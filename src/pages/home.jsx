@@ -9,29 +9,20 @@ import UserProfil from '../components/UserProfil';
 import Trends from '../components/trends';
 import { useSelector } from 'react-redux';
 import  axios  from 'axios';
+import { addArray } from '../feature/tweetSlicer';
+import { useDispatch } from 'react-redux';
+
 
 const serverData = 'http://localhost:3000/tweet';
 
 function Home() {
-  const getId = useSelector((state)=>state.dataId); // récupération de l'Id de la publication liker par le click
-  const selectTweetInput = useSelector((state)=>state.tweet);
-  const [dataTweet,setDataTweet] = useState([]);
-
-  
+  const arrayData = useSelector((state)=>state.tweetArray);
+  const dispatch = useDispatch();
+    
   const fetchData = ()=>{ 
     axios.get(serverData).then((response)=>{
       const myData = response.data;
-      if (getId ===""){ // ceci permet à éviter une erreur lorsque l'on a pas encore cliquer sur le j'aime d'une application
-      setDataTweet([...myData.reverse(),...selectTweetInput]);
-
-      }else{
-        //ceci permet  à comparer un id avec celui de la publication liker mais aussi d'increéménter le counter des likes
-        const upLoadData = myData.find((tweet)=> tweet.id === getId.payload);
-        upLoadData.counterLike++;
-        setDataTweet([...myData.reverse(),...selectTweetInput]);
-      }
-     
-      
+      dispatch(addArray(myData));
     })
   }
   
@@ -42,32 +33,32 @@ function Home() {
   }
  
    useEffect(()=>{
-    fetchData();  // cette fonction permet la syncronisation des post et get afin que celà se passe sans attendre le rechargement de la page.
-
+    // cette fonction permet la syncronisation des post et get afin que celà se passe sans attendre le rechargement de la page.
+    fetchData();
    },[])
    
   return (
-    <>
-    <aside className="left-sidebar bg-black">
-      <SideBare />
-      <div className='my-title w-22 h-22 flex  ml-16 mt-16'>
-        <Avatar src={profil} />
-        <div>
-          <UserProfil title={userProfil} />         
-        </div>
-      </div>
+    <main className='flex justify-between w-full'>
+      <aside className="left-sidebar bg-black">
+        <SideBare />
+          <div className='my-title w-22 h-22 flex  ml-16 mt-16'>
+            <Avatar src={profil} />
+            <div>
+              <UserProfil title={userProfil} />         
+            </div>
+          </div>
 
-    </aside>
-    <main className="timeline font-sans border-x border-y border-gray-800 bg-black ">
-      <Header />
-      <TweetEditor onFetch={fetchData} /> 
-      <Tweets user={dataTweet}/>  
-    </main>
-    <aside className="right-sidebar bg-black">
-      <Trends />
-    </aside>
+      </aside>
+      <main className="timeline font-sans border-x border-y border-gray-800 bg-black w-2/3 ">
+        <Header />
+        <TweetEditor onFetch={fetchData} /> 
+        <Tweets user={arrayData}/>  
+      </main>
+      <aside className="right-sidebar bg-black">
+        <Trends />
+      </aside>
     
-    </>
+    </main>
     
   )
 }

@@ -68,7 +68,7 @@ function TweetEditor({onFetch}){
         hundleClick(data);
     }
     useEffect(()=>{
-        
+        onFetch()
        },[]) 
   
     return(
