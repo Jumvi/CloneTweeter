@@ -12,15 +12,39 @@ import verified from '../images/Verified.png';
 import { incrementContext } from '../feature/tweetSlicer';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { data } from 'autoprefixer';
 
 
 function TweetEditor({onFetch}){
+    const [timeNow,setTimeNow]=useState(new Date().getTime());
     const dispatch = useDispatch();
     const [imageTweet,setImageTweet]=useState(null)
     const contextNumber = useSelector((state)=>state.context);
     let inputObject= {};
-
+    
     const urlApi = 'http://localhost:3000/tweet';
+
+    
+
+
+
+    // useEffect(()=>{
+    //     const timeInterval = setInterval(()=>{
+    //         setTimeNow(timeNow);
+    //     },1000);
+
+    //     //Netoyage de l'interval
+
+    //     return ()=> clearInterval(timeInterval);
+    // },[])
+
+
+    // const formatTime = (time) => {
+    //     const options = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
+    //     return new Intl.DateTimeFormat('default', options).format(time);
+    //   };
+     // Fonction pour formater le temps écoulé
+     
 
     const {
         register,
@@ -30,15 +54,15 @@ function TweetEditor({onFetch}){
     } = useForm()
     
     const hundleClick = (data)=>{
+        
         let updateData = data.myInput;
         let urlImage ="";
+
 
         if(data.picture[0]){
             urlImage  = URL.createObjectURL(data.picture[0])
         }
             
-         setImageTweet("");
-         console.log(imageTweet);
              inputObject = {
                 text:updateData,
                 src:'src/images/profile-photo.png',
@@ -51,7 +75,8 @@ function TweetEditor({onFetch}){
                 comment: "src/images/coeur.png",
                 share: "src/images/coeur.png",
                 bookmark: "src/images/coeur.png",
-                counterLike:0
+                counterLike:0,
+                hour:new Date().getTime()
             }
         
         axios.post(urlApi,inputObject).then((response)=>{

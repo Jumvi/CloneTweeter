@@ -35,7 +35,8 @@ const tweetSlice = createSlice({
                 comment:action.payload.comment,
                 share:action.payload.share,
                 bookmark:action.payload.bookmark,
-                counterLike:action.payload.counterLike
+                counterLike:action.payload.counterLike,
+                hour:action.payload.hour
             })
         },
         getId:(state,dataId)=>{
