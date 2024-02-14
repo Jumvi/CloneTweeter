@@ -23,27 +23,6 @@ function TweetEditor({onFetch}){
     let inputObject= {};
     
     const urlApi = 'http://localhost:3000/tweet';
-
-    
-
-
-
-    // useEffect(()=>{
-    //     const timeInterval = setInterval(()=>{
-    //         setTimeNow(timeNow);
-    //     },1000);
-
-    //     //Netoyage de l'interval
-
-    //     return ()=> clearInterval(timeInterval);
-    // },[])
-
-
-    // const formatTime = (time) => {
-    //     const options = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
-    //     return new Intl.DateTimeFormat('default', options).format(time);
-    //   };
-     // Fonction pour formater le temps écoulé
      
 
     const {
