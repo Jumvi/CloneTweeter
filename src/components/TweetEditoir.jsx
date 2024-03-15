@@ -15,7 +15,7 @@ import axios from 'axios';
 import { data } from 'autoprefixer';
 
 
-function TweetEditor({onFetch ,data}){
+function TweetEditor({onFetch ,user}){
     const [timeNow,setTimeNow]=useState(new Date().getTime());
     const dispatch = useDispatch();
     const [imageTweet,setImageTweet]=useState(null)
@@ -25,7 +25,6 @@ function TweetEditor({onFetch ,data}){
     const urlApi = 'http://localhost:3000/api/tweet';
     const urlUsersData = 'http://localhost:3000/api/users';
      
-    const user = data[0].users[7];
     
 
       
@@ -75,7 +74,7 @@ function TweetEditor({onFetch ,data}){
         <div className='tweet-editor flex items-start justify-between gap-5 p-4 border-b border-gray-800  '>
             <div >
                 
-                <Avatar src={user} />
+                <Avatar data={user} />
             </div>
             <form action="post" onSubmit={handleSubmit(data =>onSubmit(data))} className='w-full'>
                 <div className='tweet-editor-form  flex flex-col w-full'>

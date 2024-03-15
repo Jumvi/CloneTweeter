@@ -70,6 +70,9 @@ const combineData = [];
 
 combineData.push(combineObject);
 
+// les données de l'utilisateur propriétaire du compte
+const ownerUser = usersData.find((data)=>data.id === 8);
+
 
    
  if(!combineData) return <div>chargement</div>
@@ -88,7 +91,7 @@ else
       </aside>
       <main className="timeline font-sans border-x border-y border-gray-800 bg-black w-2/3 ">
         <Header />
-        <TweetEditor onFetch={fetchTweetData} data={combineData} /> 
+        <TweetEditor onFetch={fetchTweetData} user={ownerUser} /> 
        {combineData&& <Tweets dataUserTweet={usersData} dataTweet={tweetData}/>}  
       </main>
       <aside className="right-sidebar bg-black w-1/3">
