@@ -12,27 +12,21 @@ function TheUserProfil({user}) {
         <div>
             <div className='bg-profil'>
                 <div className='profilIdentity'>
-                    <AvatarProfil src={imgProfil}/>
+                    <AvatarProfil src={user.users.profilePicture}/>
                     <button className='user-button1'>Edite profil</button>
                 </div>
                 
             </div>
 
-            <div className='auther-certification'>
+            <div className=''>
                         <div className='author-title'>
-                            <h4>{user.author}</h4>
-                            {
-                                user.isCert ? (
-                                    <img src={user.verifiedIcon} alt="certification" />
-                                ): 
-                                null
-                            }
-                            <span>{user.pseudo}</span>
+                            <span>{user.users.name}</span>
+                            <span>{user.users.handle}</span>
                         </div>
                         <p>{user.description}</p>
                         <div className='user-follow'>
-                            <span>{user.following}</span>
-                            <span>{user.follower}</span>
+                            <span>{user.users.followersCount}</span>
+                            <span>{user.users.followingCount}</span>
                         </div>
                        
             </div>

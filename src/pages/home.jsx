@@ -13,51 +13,88 @@ import { addArray } from '../feature/tweetSlicer';
 import { useDispatch } from 'react-redux';
 
 
-const serverData = 'http://localhost:3000/tweet';
+const urlTweetsData = 'http://localhost:3000/api/tweet';
+const urlUsersData = 'http://localhost:3000/api/users';
+
+
+
 
 function Home() {
   const arrayData = useSelector((state)=>state.tweetArray);
   const dispatch = useDispatch();
+  const [tweetData,setTweetData]=useState([]);
+  const [usersData,setUsersData]=useState([]);
     
-  const fetchData = ()=>{ 
-    axios.get(serverData).then((response)=>{
-      const myData = response.data;
-      dispatch(addArray(myData));
-    })
+ 
+  
+
+
+ async function fetchTweetData (){
+  try{
+    const response = await axios.get(urlTweetsData)
+    const tweet = response.data
+    setTweetData(response.data)
+   
+  }catch(error){
+    console.error(error);
   }
   
-  const userProfil ={
-    isName :'judah',
-    isPastName:'Mvi',
-    isPseudo: '@Jmvi'
+ }
+
+ async function fetchUsersData (){
+  try{
+    const response = await axios.get(urlUsersData);
+    const user = response.data;
+    setUsersData(response.data);
+  }catch(error){
+    console.error(error);
   }
  
+ }
+
    useEffect(()=>{
     // cette fonction permet la syncronisation des post et get afin que celà se passe sans attendre le rechargement de la page.
-    fetchData();
-   },[])
+     fetchTweetData();
+     fetchUsersData();
+    (async ()=> {
    
+    })()
+   },[])
+
+   
+const combineObject = {
+  users:usersData,
+  tweets:tweetData
+}
+const combineData = [];
+
+combineData.push(combineObject);
+
+
+   
+ if(!combineData) return <div>chargement</div>
+else
   return (
     <main className='flex justify-between w-full'>
-      <aside className="left-sidebar bg-black">
+       <aside className="left-sidebar bg-black w-1/3">
         <SideBare />
-          <div className='my-title w-22 h-22 flex  ml-16 mt-16'>
+          <div className='my-title  h-22 flex  ml-16 mt-16'>
             <Avatar src={profil} />
             <div>
-              <UserProfil title={userProfil} />         
+             {/* {serverData&& <UserProfil title={userProfil} />   }       */}
             </div>
           </div>
 
       </aside>
       <main className="timeline font-sans border-x border-y border-gray-800 bg-black w-2/3 ">
         <Header />
-        <TweetEditor onFetch={fetchData} /> 
-        <Tweets user={arrayData}/>  
+        <TweetEditor onFetch={fetchTweetData} data={combineData} /> 
+       {combineData&& <Tweets dataUserTweet={usersData} dataTweet={tweetData}/>}  
       </main>
-      <aside className="right-sidebar bg-black">
+      <aside className="right-sidebar bg-black w-1/3">
         <Trends />
       </aside>
-    
+     
     </main>
     
   )

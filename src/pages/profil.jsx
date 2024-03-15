@@ -7,26 +7,41 @@ import TheUserProfil from '../components/TheUserProfil';
 import { userData } from '../Data/theUSerData';
 import axios from 'axios';
 
-const serverData = 'http://localhost:3000/tweet';
+const serverData = 'http://localhost:3000/api/tweet';
     function Profil() {
-        const tweetData = useSelector((state)=>state.tweet.slice());
-        const [tweetListe,setTweetList] = useState(tweetData);
-        const [fetchData,setFetchData] =useState([]);
+        const dataId = useSelector((state)=>state.dataId.slice());
+        const [tweetListe,setTweetList] = useState([]);
+        const [fetchData,setFetchData] =useState([1]);
+
+        
 
     useEffect(()=>{  
         axios.get(serverData).then((response)=>{
-            setFetchData([...tweetListe,...response.data.reverse()]);
+            setFetchData([response.data]);
+            // updateData(fetchData)
         })      
-    },[tweetListe])
+    },[])
+
+    const tweetProfil = "";
+
+    // useEffect(()=>{
+    //     const updateData = (data)=>{
+    //         axios.put(serverData,data).then((response)=>{
+    //         })
+    //     }
+    // },[fetchData])
         return (
-            <div className='profil flex justify-between'>
-                <SideBare />
-                <div className='profil-tweet'>
+            <div className='flex w-full'>
+                <aside className='w-1/3'>
+                    <SideBare />
+                </aside>
+                <main className='timeline font-sans border-x border-y border-gray-800 bg-black w-2/3 '>
                     <TheUserProfil user={userData}/>
                     <Tweets user={fetchData}/> 
-                </div>
-                
-                <Trends />
+                </main>
+                <aside className='w-1/3 p-1'>
+                    <Trends />
+                </aside>
             </div>
         );
     }

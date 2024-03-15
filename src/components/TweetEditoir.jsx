@@ -15,16 +15,20 @@ import axios from 'axios';
 import { data } from 'autoprefixer';
 
 
-function TweetEditor({onFetch}){
+function TweetEditor({onFetch ,data}){
     const [timeNow,setTimeNow]=useState(new Date().getTime());
     const dispatch = useDispatch();
     const [imageTweet,setImageTweet]=useState(null)
     const contextNumber = useSelector((state)=>state.context);
     let inputObject= {};
     
-    const urlApi = 'http://localhost:3000/tweet';
+    const urlApi = 'http://localhost:3000/api/tweet';
+    const urlUsersData = 'http://localhost:3000/api/users';
      
+    const user = data[0].users[7];
+    
 
+      
     const {
         register,
         handleSubmit,
@@ -33,32 +37,22 @@ function TweetEditor({onFetch}){
     } = useForm()
     
     const hundleClick = (data)=>{
-        
-        let updateData = data.myInput;
         let urlImage ="";
-
-
         if(data.picture[0]){
             urlImage  = URL.createObjectURL(data.picture[0])
         }
             
              inputObject = {
-                text:updateData,
-                src:'src/images/profile-photo.png',
-                author:"Propriétaire du compte",
-                like:coeur,
-                pseudo:'@Jmvi',
-                verifiedIcon:verified,
-                imgContent:urlImage,//ceci permet de ne recupéré que l'url du file et non toutes les données.
-                isCert:true,
-                comment: "src/images/coeur.png",
-                share: "src/images/coeur.png",
-                bookmark: "src/images/coeur.png",
-                counterLike:0,
-                hour:new Date().getTime()
-            }
+                author:8 ,
+                media: urlImage,
+                retweetCount: 0,
+                favoriteCount: 0,
+                repliesCount: 0,
+                text:data.myInput,
+                timestamp: true
+              }
         
-        axios.post(urlApi,inputObject).then((response)=>{
+        axios.post(urlUsersData,inputObject).then((response)=>{
             onFetch();
         })  
             .catch((error)=>{
@@ -74,15 +68,18 @@ function TweetEditor({onFetch}){
     useEffect(()=>{
         onFetch()
        },[]) 
+
+       
   
     return(
         <div className='tweet-editor flex items-start justify-between gap-5 p-4 border-b border-gray-800  '>
             <div >
-                <Avatar src={profil} />
+                
+                <Avatar src={user} />
             </div>
             <form action="post" onSubmit={handleSubmit(data =>onSubmit(data))} className='w-full'>
                 <div className='tweet-editor-form  flex flex-col w-full'>
-                    <input type="text" className='tweet-editor-input h-10 min-w-full border-0 outline-none text-xl bg-black text-white resize-none px-2 mx-2' placeholder='What s happenning ' {...register('myInput',{required:true})}/>
+                    <input  className='tweet-editor-input h-10 min-w-full border-0 outline-none text-xl bg-black text-white resize-none px-2 mx-2' placeholder='What s happenning ' {...register('myInput',{required:true})}/>
                         {errors.myInput && <h4> ce champs est obligatoire</h4>}
                     <div className='tweet-editor-buttons flex justify-between w-full'>
                         <div className='tweet-editor-actions flex items-center flex-start' >
@@ -93,7 +90,6 @@ function TweetEditor({onFetch}){
                             <label htmlFor="gif-input">
                                  <img src={gif} alt="" />
                                 </label>
-                        
                             <img src= {poll} alt="" />
                             <img src= {calendar} alt="" />
                         </div>

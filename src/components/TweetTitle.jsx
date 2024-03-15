@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom";
+
 
 function getTimeSinceTweet(tweetTime) {
     const now = new Date();
     const difference = now - tweetTime;
+
 
     // Conversion en millisecondes
     const seconds = Math.floor(difference / 1000);
@@ -27,36 +30,21 @@ function getTimeSinceTweet(tweetTime) {
   }
 
 
-function TweetTile({user}){
-const tweetTime = getTimeSinceTweet(user.hour);
-
-    return(
+  function TweetTile({ data }) {
+    // Recherche de l'utilisateur avec l'ID 8
+    if(!data)return(<div>not found user</div>)
+    return (
         <div className="tweet-title flex flex-start items-start gap-1 self-center">
-            <div className="tweet-title-author">
-                <h5>{user.author}</h5>                        
+            <div className="flex gap-1">
+                <Link to={`/profil/${data.id}`}>
+                    <h5 className="text-white">{data.name}</h5>
+                </Link>
+                <span className="text-white">{data.handle}</span>
+                {/* Assurez-vous que la propriété `createdAt` est correctement définie dans votre objet `tweet` */}
+                {/* <span className="text-white">{user.tweets.createdAt}</span>    */}
             </div>
-            <div>
-                {
-                    user.isCert ?(
-                        <img src={ user.verifiedIcon} alt="icon de virification" />     
-                    )
-                            :
-                    null
-                }
-            
-               
-                
-            </div>
-            
-            <div className="tweet-title-details">
-                <span >{user.pseudo}</span><span >.</span><span  >{tweetTime}</span>
-            </div>   
-           
-            
-
         </div>
-    )
-             
+    );
 }
 
 export default TweetTile;

@@ -5,10 +5,9 @@ function UserProfil({title}) {
     return (
         <div>
             <div className='user-title flex items-center gap-3'>
-                <p>{title.isName}</p>
-                <p>{title.isPastName}</p>
+                <p>{title.users.name}</p>
+                <span>{title.users.handle}</span>
             </div>
-            <span>{title.isPseudo}</span>
         </div>
     );
 }
