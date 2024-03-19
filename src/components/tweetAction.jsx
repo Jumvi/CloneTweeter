@@ -4,19 +4,17 @@ import { getId } from '../feature/tweetSlicer';
 import { removeTweet } from '../feature/tweetSlicer';
 
 function TweetAction({ icon, counter, id }) {
-    const [isLiked, setIsLiked] = useState(true);
+    const [isLiked, setIsLiked] = useState(false);
     const dispatch = useDispatch();
 
     function onClick(e) {
-        if (isLiked && id) {
-            setIsLiked(false);
+        if (!isLiked && id) {
+            setIsLiked(true);
             dispatch(getId(id));
-            console.log('jai cliqué', isLiked,{id});
 
         } else {
-            setIsLiked(true);
+            setIsLiked(false);
             dispatch(removeTweet(id));
-            console.log('je click encore', isLiked);
         }
     }
 

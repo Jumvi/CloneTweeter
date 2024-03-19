@@ -8,25 +8,34 @@ import {useSelector } from 'react-redux';
 function TheUserProfil({user}) {
     const contextNumber = useSelector((state)=>state.context);
 
+    
+
+
     return (
         <div>
-            <div className='bg-profil'>
-                <div className='profilIdentity'>
-                    <AvatarProfil src={user.users.profilePicture}/>
-                    <button className='user-button1'>Edite profil</button>
+            <div className=''>
+            <div className=" flex justify-between bg-gray-800 text-white p-8" style={{ backgroundImage: `url(${user.profileBackground})` }}>
+                    <AvatarProfil src={user.profilePicture}/>
+                    <button className='user-button1 self-end'>Edite profil</button>
                 </div>
                 
             </div>
 
-            <div className=''>
-                        <div className='author-title'>
-                            <span>{user.users.name}</span>
-                            <span>{user.users.handle}</span>
+            <div className='p-1'>
+                        <div className='flex gap-1'>
+                            <span>{user.name}</span>
+                            <span>{user.handle}</span>
                         </div>
-                        <p>{user.description}</p>
-                        <div className='user-follow'>
-                            <span>{user.users.followersCount}</span>
-                            <span>{user.users.followingCount}</span>
+                        <div>
+                            <span>{user.location}</span>
+                            <p>{user.website}</p>
+                            <p>{user.createdAt}</p>
+                            <p>{user.bio}</p>
+                        </div>
+                        <div className='flex gap-4'>
+                            <span>fallowers {user.followersCount}</span>
+                            <span>fallowing {user.followingCount}</span>
+                            
                         </div>
                        
             </div>

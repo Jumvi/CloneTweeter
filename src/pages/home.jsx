@@ -5,12 +5,11 @@ import Tweets from '../components/Tweets';
 import SideBare from '../components/SideBare';
 import Avatar from '../components/Avatar';
 import profil from '../images/profile-photo.png';
-import UserProfil from '../components/UserProfil';
 import Trends from '../components/trends';
-import { useSelector } from 'react-redux';
 import  axios  from 'axios';
-import { addArray } from '../feature/tweetSlicer';
-import { useDispatch } from 'react-redux';
+import { addTweet } from '../feature/tweetSlicer';
+import { useDispatch, useSelector } from 'react-redux';
+import { Await } from 'react-router-dom';
 
 
 const urlTweetsData = 'http://localhost:3000/api/tweet';
@@ -20,7 +19,9 @@ const urlUsersData = 'http://localhost:3000/api/users';
 
 
 function Home() {
-  const arrayData = useSelector((state)=>state.tweetArray);
+  const idLikeData = useSelector((state)=>state.dataId);
+  console.log(idLikeData);
+  const [profilData,setProfilData] = useState([]);
   const dispatch = useDispatch();
   const [tweetData,setTweetData]=useState([]);
   const [usersData,setUsersData]=useState([]);
@@ -51,14 +52,20 @@ function Home() {
   }
  
  }
-
-   useEffect(()=>{
+ 
     // cette fonction permet la syncronisation des post et get afin que celà se passe sans attendre le rechargement de la page.
-     fetchTweetData();
-     fetchUsersData();
-    (async ()=> {
-   
-    })()
+
+ const fectData = async()=>{
+  try{
+   await fetchTweetData();
+   await fetchUsersData();
+  }catch(error){
+    console.error("Erreur", error);
+  }
+ }
+   useEffect(()=>{
+     
+   fectData();
    },[])
 
    
@@ -73,6 +80,13 @@ combineData.push(combineObject);
 // les données de l'utilisateur propriétaire du compte
 const ownerUser = usersData.find((data)=>data.id === 8);
 
+
+// stockage de la liste des tweets likées dans un tableau afin de les envoyés au composant profil du owner
+useEffect(()=>{
+  const tweetLike = tweetData.find((tweet)=>tweet.id === idLikeData.payload);
+  setProfilData([tweetLike,...profilData]);
+  dispatch(addTweet(profilData));
+},[idLikeData])
 
    
  if(!combineData) return <div>chargement</div>
@@ -91,7 +105,7 @@ else
       </aside>
       <main className="timeline font-sans border-x border-y border-gray-800 bg-black w-2/3 ">
         <Header />
-        <TweetEditor onFetch={fetchTweetData} user={ownerUser} /> 
+        <TweetEditor onFetch={fectData} user={ownerUser} /> 
        {combineData&& <Tweets dataUserTweet={usersData} dataTweet={tweetData}/>}  
       </main>
       <aside className="right-sidebar bg-black w-1/3">

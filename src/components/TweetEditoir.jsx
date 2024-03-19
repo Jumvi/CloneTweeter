@@ -42,20 +42,20 @@ function TweetEditor({onFetch ,user}){
         }
             
              inputObject = {
+                id:"",
                 author:8 ,
-                media: urlImage,
+                media: urlImage? [urlImage]:[],
                 retweetCount: 0,
                 favoriteCount: 0,
                 repliesCount: 0,
                 text:data.myInput,
-                timestamp: true
+                createdAt: new Date().toString()
               }
         
-        axios.post(urlUsersData,inputObject).then((response)=>{
+        axios.post(urlApi,inputObject).then((response)=>{
             onFetch();
         })  
             .catch((error)=>{
-                    console.error('error:',error);
             })
         dispatch(incrementContext(contextNumber));
         reset();

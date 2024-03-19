@@ -1,10 +1,8 @@
 import Avatar from "./Avatar";
 import TweetTile from "./TweetTitle";
 import {  useContext, useEffect, useState } from "react";
-import { Await, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import { addTweet } from "../feature/tweetSlicer";
-import {removeTweet} from "../feature/tweetSlicer";
 import { contextCounter } from "../index.jsx";
 import axios from "axios";
 import { getId } from "../feature/tweetSlicer";
@@ -22,80 +20,29 @@ const apiData = 'http://localhost:3000/api/tweet';
 
 
 function Tweets({dataUserTweet , dataTweet}) {
-    
-    const [serveData,setServerData] = useState([]);
-    let [updatedTweet, setUpdatedTweet] = useState({});
-    const [isLiked, setIsLiked] = useState(true);
     const { counter, setCounter } = useContext(contextCounter);
     const [myId, setMyId] = useState("");
     const dispatch = useDispatch();
     const valId = useSelector((state) => state.dataId);
 
-    // const fetchData = async() => {
-    //    await axios.get(apiData).then((response) => {
-    //         const dataUserAndTweet = response.data;
-    //     });
-    // };
+    
 
-    // useEffect(() => {
-    //     (async () => {
-    //         const response = await axios.get(apiData).then((response) => {
-    //             const dataUserAndTweet = response.data;
-    //             setServerData(dataUserAndTweet);
-    //         });
-    //     })();
-    // }, []);
+    
 
-
-    function clickAvatar() {
+    function clickAvatar(e) {
         const tweetId = e.target.id;
          setMyId(tweetId);
          dispatch(getId(myId));
          return myId;
     }
-
-
-
-    // function hundelClick(e) {
-    //     clickAvatar()
-    //     // récupération de l'id de la publication qui a été liké
-    //     const likeTweet = serveData.users.find((object) => object.id === myId);
-
-    //     dispatch(getId(myId));
-
-    //     //
-        
-    //     if (myId === likeTweet.users.id) {
-    //         if (isLiked ) {
-    //            updatedTweet = {...likeTweet, favoriteCount:likeTweet.twwets.favoriteCount++} // Incrémenter le compteur de likes
-    //            dispatch(addTweet(updatedTweet));
-    //            setCounter(likeTweet.twwets.favoriteCount++);
-    //            setIsLiked(false);
-                
-    //         } else {
-    //             updatedTweet = {...likeTweet, favoriteCount:likeTweet.twwets.favoriteCount--} ,
-    //             setCounter(likeTweet.twwets.favoriteCount--);
-    //             setIsLiked(true);
-    //             dispatch(removeTweet(updatedTweet)); // Supprimer le like
-    //         }
-    //     }
-
-    //     // Mettre à jour le tweet sur le serveur
-    //     axios.put(urlApi + tweetId, likeTweet).then((response) => {
-    //         fetchData();    
-    //     });
-    // }
-
-
-
        
         let mapTweets =[];;
         let mapUsers = [];
         const tweetData = dataTweet;
         let idUser = [] ;
         for (let i = 0; i < dataUserTweet.length; i++) { 
-            const user = dataUserTweet.find(user => user.id === i + 1); 
-            if (user) {
+            const user = dataUserTweet.find(user => user.id === i + 1);
+            if (user.id <=8) {
                 idUser.push(user.id);
                const  mapTweet = tweetData.find((tweet)=>tweet.author === user.id) ;
                 if( mapTweet){
@@ -105,12 +52,17 @@ function Tweets({dataUserTweet , dataTweet}) {
                
             }
         }
+        // afin de n'afficher qu'un seul tweet pour chaque user, on crée un objet qui stoke les tweet par auteur 
+        const tweetsByUser = {};
+        for (const tweet of mapTweets) {
+            // Si l'utilisateur n'a pas encore de tweet, on l'ajoute dans l'objet avec un utilisateur
+            if (!tweetsByUser[tweet.author]) {
+                tweetsByUser[tweet.author] = tweet;
+            }
+        }
 
-        console.log({mapTweets,mapUsers});
-
-    if(tweetData){
         
-
+    if(tweetData){
         return (
             <div className="tweets w-full border-y border-gray-800 bg-black ">
                 {mapUsers.map((data) => (
@@ -119,32 +71,31 @@ function Tweets({dataUserTweet , dataTweet}) {
                             <Link to={`profil/${data.id}`}>
                                 <Avatar data={data} avatarClick={clickAvatar} />
                             </Link>
-                            <TweetTile data={data} />
+                            {tweetData? <TweetTile data={data} tweet={tweetData}/> :<TweetTile data={data} />}
                         </div>
                         <div>
-                            {mapTweets.map((tweet) => (
-                                <div key={tweet.id}>
+                            {tweetsByUser[data.id] && (
+                                <div>
                                     <div className="tweet-text">
-                                         <p>{tweet.text}</p>
+                                        <p>{tweetsByUser[data.id].text}</p>
                                     </div>
                                     <div className="w-full">
-                                        {tweet.media ? <img className="rounded p-4 w-[35rem] h-96 object-fill" src={tweet.media} alt="image du tweet" /> : ""}
+                                        {tweetsByUser[data.id].media && (
+                                            <img className="rounded p-4 w-[35rem] h-96 object-fill" src={tweetsByUser[data.id].media} alt="image du tweet" />
+                                        )}
                                     </div>
                                     <div className="tweet-actions flex flex-start items-start gap-24 p-4">
-                                        <TweetAction icon={<BiMessageRounded />} counter={tweet.repliesCount} id={tweet.id} />
-                                        <TweetAction icon={<FaRetweet />} counter={tweet.retweetCount} id={tweet.id} />
-                                        <TweetAction icon={<MdOutlineFavoriteBorder />} counter={tweet.favoriteCount} id={tweet.id} />
-                                        <TweetAction icon={<MdIosShare />} counter={tweet.repliesCount} id={tweet.id} />
+                                        <TweetAction icon={<BiMessageRounded />} counter={tweetsByUser[data.id].repliesCount} id={tweetsByUser[data.id].id} />
+                                        <TweetAction icon={<FaRetweet />} counter={tweetsByUser[data.id].retweetCount} id={tweetsByUser[data.id].id} />
+                                        <TweetAction icon={<MdOutlineFavoriteBorder />} counter={tweetsByUser[data.id].favoriteCount} id={tweetsByUser[data.id].id} />
+                                        <TweetAction icon={<MdIosShare />} counter={tweetsByUser[data.id].repliesCount} id={tweetsByUser[data.id].id} />
                                     </div>
                                 </div>
-                            ))}
+                            )}
     
-                </div>
+                        </div>
                     </div>
                 ))}
-    
-                
-                
             </div>
         );
     } else {

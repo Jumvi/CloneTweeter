@@ -54,7 +54,7 @@ const router = createBrowserRouter([
     element:<Lists />
   },
   {
-    path:'/profil/:id',
+    path:'/profil/:userId',
     element:<Profil />
   },
   {
@@ -70,7 +70,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <ContextProvider>
+      <ContextProvider >
         <RouterProvider router={router}/>
       </ContextProvider>  
     </Provider>
