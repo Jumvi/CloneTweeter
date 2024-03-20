@@ -13,6 +13,7 @@ import { incrementContext } from '../feature/tweetSlicer';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { data } from 'autoprefixer';
+import { Link } from 'react-router-dom';
 
 
 function TweetEditor({onFetch ,user}){
@@ -44,12 +45,38 @@ function TweetEditor({onFetch ,user}){
              inputObject = {
                 id:"",
                 author:8 ,
-                media: urlImage? [urlImage]:[],
+                media: urlImage? [urlImage]:["https://picsum.photos/1549/3890.jpg"],
                 retweetCount: 0,
                 favoriteCount: 0,
                 repliesCount: 0,
                 text:data.myInput,
-                createdAt: new Date().toString()
+                createdAt: new Date().toString(),
+                profileBackground: "https://picsum.photos/4128/1946.jpg",
+                profilePicture: "https://i.pravatar.cc/300?img=17",
+                likedTweetIds: [
+                    93,
+                    1,
+                    88,
+                    130,
+                    19,
+                    78,
+                    177,
+                    200,
+                    38
+                  ],
+                  sharedTweetIds: [
+                    122,
+                    112,
+                    1,
+                    70,
+                    27,
+                    55,
+                    13,
+                    103
+                  ],
+                  bio: "Nostrud aliqua ut labore adipisicing magna id pariatur cillum ex consectetur do culpa.",
+                  location: "Wescosville, KS",
+                  website: "www.rgallaher.cd",
               }
         
         axios.post(urlApi,inputObject).then((response)=>{
@@ -73,8 +100,9 @@ function TweetEditor({onFetch ,user}){
     return(
         <div className='tweet-editor flex items-start justify-between gap-5 p-4 border-b border-gray-800  '>
             <div >
-                
-                <Avatar data={user} />
+                <Link to='/profilUser'>
+                     <Avatar data={user} />
+                </Link>
             </div>
             <form action="post" onSubmit={handleSubmit(data =>onSubmit(data))} className='w-full'>
                 <div className='tweet-editor-form  flex flex-col w-full'>

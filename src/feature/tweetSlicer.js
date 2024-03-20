@@ -39,8 +39,8 @@ const tweetSlice = createSlice({
                 hour:action.payload.hour
             })
         },
-        getId:(state,dataId)=>{
-            state.dataId = dataId;
+        getId:(state,action)=>{
+            state.dataId = action.payload;
         },
         addArray:(state,action)=>{
             state.tweetArray = action.payload.reverse();

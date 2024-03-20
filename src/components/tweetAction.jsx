@@ -9,8 +9,11 @@ function TweetAction({ icon, counter, id }) {
 
     function onClick(e) {
         if (!isLiked && id) {
-            setIsLiked(true);
             dispatch(getId(id));
+    console.log({id});
+
+            setIsLiked(true);
+
 
         } else {
             setIsLiked(false);
@@ -18,7 +21,15 @@ function TweetAction({ icon, counter, id }) {
         }
     }
 
-    isLiked? counter = counter +1 -1 : counter  = counter-1;
+
+    if (isLiked) {
+        counter = counter +1 -1;//evite le saut d'incrémentation de 2
+    } else {
+                                             // permet de gérer le cas au counter = 0
+        counter = counter > 0 ? counter - 1 : counter +1;
+    }
+    
+    
 
     return (
         <div>

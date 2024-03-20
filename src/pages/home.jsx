@@ -20,7 +20,6 @@ const urlUsersData = 'http://localhost:3000/api/users';
 
 function Home() {
   const idLikeData = useSelector((state)=>state.dataId);
-  console.log(idLikeData);
   const [profilData,setProfilData] = useState([]);
   const dispatch = useDispatch();
   const [tweetData,setTweetData]=useState([]);
@@ -92,7 +91,7 @@ useEffect(()=>{
  if(!combineData) return <div>chargement</div>
 else
   return (
-    <main className='flex justify-between w-full'>
+    <main className='flex justify-between w-full '>
        <aside className="left-sidebar bg-black w-1/3">
         <SideBare />
           <div className='my-title  h-22 flex  ml-16 mt-16'>

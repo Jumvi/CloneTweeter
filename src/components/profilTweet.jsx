@@ -26,7 +26,7 @@ function ProfilTweet({tweets,users}) {
                                      <p>{tweet.text}</p>
                                 </div>
                                 <div className="w-full">
-                                    {tweet.media ? <img className="rounded p-4 w-[35rem] h-96 object-fill" src={tweet.media} alt="image du tweet" /> : ""}
+                                    {tweet.media ? <img className="rounded-lg p-4 w-[35rem] h-96 object-fill" src={tweet.media} alt="image du tweet" /> : ""}
                                 </div>
                                 <div className="tweet-actions flex flex-start items-start gap-24 p-4">
                                     <TweetAction icon={<BiMessageRounded />} counter={tweet.repliesCount} id={tweet.id} />

@@ -37,7 +37,7 @@ function SideBare() {
                   <NavLink className="flex gap-2 decoration-none items-center " to ="/lists"> <FaRegListAlt color='white' /> Lists</NavLink>
                </li>
                <li className='list-none hover:list-none text-white border-none'>
-                  <NavLink className="flex gap-2 decoration-none items-center " to ="/profil"> <FaRegUser color='white' /> Profil</NavLink>
+                  <NavLink className="flex gap-2 decoration-none items-center " to ="/profilUser"> <FaRegUser color='white' /> Profil</NavLink>
                </li>                
                <li className='list-none hover:list-none text-white border-none'>
                   <NavLink className="flex gap-2 decoration-none items-center " to ="/more">   <CiCircleMore color='white' /> More</NavLink> 

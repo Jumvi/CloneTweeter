@@ -17,9 +17,11 @@ const serverUsersData = 'http://localhost:3000/api/users';
         const [tweetListe,setTweetList] = useState([]);
         const [fetchDataUser,setFetchDataUser] =useState([]);
         const [allUser,setAllUser] = useState([]);
+        const [getId,setGetId] = useState(dataId);
         const {userId} = useParams();
 
 
+console.log({getId});
 
         
 
@@ -76,6 +78,7 @@ const serverUsersData = 'http://localhost:3000/api/users';
            const tweetData = tweetListe.find((tweet)=> tweet.author == dataId);
 
 
+
            const tweetAutor = tweetListe.map((tweet) =>tweet.author);
 
            const userTweet = allUser.filter(user => tweetListe.some(tweet => tweet.author === user.id));
@@ -109,7 +112,6 @@ const serverUsersData = 'http://localhost:3000/api/users';
     //         })
     //     }
     // },[fetchData])
-    console.log(userArray[0]);
         return (
             <div className='flex w-full'>
                 <aside className='w-1/3'>
